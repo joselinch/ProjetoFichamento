@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ProjetoFichamento
-//
-//  Created by José Antônio Linch Burmann on 22/07/21.
-//
-
 import UIKit
 import CoreData
 
