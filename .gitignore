@@ -161,7 +161,7 @@ playground.xcworkspace
 ### SwiftPackageManager ###
 Packages
 xcuserdata
-*.xcodeproj
+# *.xcodeproj
 
 ### SwiftPM ###
 
