@@ -94,9 +94,8 @@
 				2474F20926B0743500E90FE7 /* Pesquisar */,
 				2474F20826B0742C00E90FE7 /* Pastas */,
 				2474F20626B0740100E90FE7 /* Fichamento */,
-				27D1FA0326A9CF39001987CB /* Models */,
 				27D1FA0226A9CF1E001987CB /* Controllers */,
-				27D1FA0126A9CF06001987CB /* Views */,
+				27D1FA0126A9CF06001987CB /* Main */,
 				27D1F9EA26A9CEDB001987CB /* AppDelegate.swift */,
 				27D1F9EC26A9CEDB001987CB /* SceneDelegate.swift */,
 				27D1F9F626A9CEDE001987CB /* Assets.xcassets */,
@@ -107,12 +106,12 @@
 			path = ProjetoFichamento;
 			sourceTree = "<group>";
 		};
-		27D1FA0126A9CF06001987CB /* Views */ = {
+		27D1FA0126A9CF06001987CB /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				27D1F9F026A9CEDB001987CB /* Main.storyboard */,
 			);
-			path = Views;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		27D1FA0226A9CF1E001987CB /* Controllers */ = {
@@ -121,13 +120,6 @@
 				27D1F9EE26A9CEDB001987CB /* ViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		27D1FA0326A9CF39001987CB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
