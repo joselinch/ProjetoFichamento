@@ -9,15 +9,15 @@ import UIKit
 
 class FoldersTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameFolder: UILabel!
-    @IBOutlet weak var numberRecords: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    
+
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
 //
