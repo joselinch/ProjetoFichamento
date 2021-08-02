@@ -9,10 +9,10 @@
         <attribute name="reference" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="categories" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories"/>
+        <relationship name="categories" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category"/>
         <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Files"/>
     </entity>
-    <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="category">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="category">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -31,7 +31,7 @@
     </entity>
     <elements>
         <element name="Card" positionX="-63" positionY="-18" width="128" height="179"/>
-        <element name="Categories" positionX="-54" positionY="-9" width="128" height="89"/>
+        <element name="Category" positionX="-54" positionY="-9" width="128" height="89"/>
         <element name="Files" positionX="-18" positionY="27" width="128" height="104"/>
         <element name="Search" positionX="-36" positionY="9" width="128" height="59"/>
     </elements>
