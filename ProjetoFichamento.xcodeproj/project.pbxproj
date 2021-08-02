@@ -22,7 +22,6 @@
 		27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9EC26A9CEDB001987CB /* SceneDelegate.swift */; };
 		27D1F9EF26A9CEDB001987CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9EE26A9CEDB001987CB /* ViewController.swift */; };
 		27D1F9F226A9CEDB001987CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F026A9CEDB001987CB /* Main.storyboard */; };
-		27D1F9F526A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9F326A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld */; };
 		27D1F9F726A9CEDE001987CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F626A9CEDE001987CB /* Assets.xcassets */; };
 		27D1F9FA26A9CEDE001987CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F826A9CEDE001987CB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -234,7 +233,6 @@
 				27CF60EA26B85C3F003D6BC7 /* Search+CoreDataProperties.swift in Sources */,
 				27CF60E626B85C3F003D6BC7 /* Card+CoreDataProperties.swift in Sources */,
 				27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */,
-				27D1F9F526A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld in Sources */,
 				27CF60E726B85C3F003D6BC7 /* Files+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
