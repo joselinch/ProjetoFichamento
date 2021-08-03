@@ -17,7 +17,6 @@
 		27D1F9F526A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9F326A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld */; };
 		27D1F9F726A9CEDE001987CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F626A9CEDE001987CB /* Assets.xcassets */; };
 		27D1F9FA26A9CEDE001987CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F826A9CEDE001987CB /* LaunchScreen.storyboard */; };
-		27D1FA0526A9D6A6001987CB /* gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 27D1FA0426A9D6A5001987CB /* gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		27D1F9F626A9CEDE001987CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D1F9F926A9CEDE001987CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27D1F9FB26A9CEDE001987CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27D1FA0426A9D6A5001987CB /* gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 		27D1F9DE26A9CEDB001987CB = {
 			isa = PBXGroup;
 			children = (
-				27D1FA0426A9D6A5001987CB /* gitignore */,
 				27D1F9E926A9CEDB001987CB /* ProjetoFichamento */,
 				27D1F9E826A9CEDB001987CB /* Products */,
 			);
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D1F9FA26A9CEDE001987CB /* LaunchScreen.storyboard in Resources */,
-				27D1FA0526A9D6A6001987CB /* gitignore in Resources */,
 				2474F20D26B0747500E90FE7 /* Pastas.storyboard in Resources */,
 				27D1F9F726A9CEDE001987CB /* Assets.xcassets in Resources */,
 				27D1F9F226A9CEDB001987CB /* Main.storyboard in Resources */,
