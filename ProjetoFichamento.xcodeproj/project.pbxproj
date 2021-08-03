@@ -25,6 +25,9 @@
 		9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */; };
 		9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */; };
 		9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */; };
+		B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC526B1F42400874612 /* dataFolders.swift */; };
+		B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */; };
+		B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		27D1F9F626A9CEDE001987CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D1F9F926A9CEDE001987CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27D1F9FB26A9CEDE001987CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1EFFCC526B1F42400874612 /* dataFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataFolders.swift; sourceTree = "<group>"; };
+		B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTableViewCell.swift; sourceTree = "<group>"; };
+		B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersListViewController.swift; sourceTree = "<group>"; };
 		9F2CF92D26B9E76D000E236D /* Files+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9F2CF92E26B9E76D000E236D /* Files+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F2CF92F26B9E76D000E236D /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				2474F20C26B0747500E90FE7 /* Pastas.storyboard */,
+				B1EFFCC526B1F42400874612 /* dataFolders.swift */,
+				B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */,
+				B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */,
 			);
 			path = Pastas;
 			sourceTree = "<group>";
@@ -235,9 +244,13 @@
 				27D1F9EF26A9CEDB001987CB /* ViewController.swift in Sources */,
 				9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */,
 				27D1F9EB26A9CEDB001987CB /* AppDelegate.swift in Sources */,
+				B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */,
 				27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */,
 				9F2CF93326B9E76D000E236D /* Files+CoreDataClass.swift in Sources */,
 				9F2CF93426B9E76D000E236D /* Files+CoreDataProperties.swift in Sources */,
+				B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */,
+				27D1F9F526A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld in Sources */,
+				B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 953NZ54P3R;
+				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -404,7 +417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 953NZ54P3R;
+				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
