@@ -2,7 +2,7 @@
 //  Card+CoreDataProperties.swift
 //  ProjetoFichamento
 //
-//  Created by José Antônio Linch Burmann on 02/08/21.
+//  Created by Julia Silveira de Souza on 03/08/21.
 //
 //
 
@@ -24,7 +24,7 @@ extension Card {
     @NSManaged public var reference: String?
     @NSManaged public var status: String?
     @NSManaged public var title: String?
-    @NSManaged public var categories: Categories?
+    @NSManaged public var categories: Category?
     @NSManaged public var files: NSSet?
 
 }
