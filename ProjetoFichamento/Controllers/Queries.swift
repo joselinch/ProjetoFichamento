@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-
 //MARK: Definição do context
 let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+var items:[Category]?
 
-////MARK: Retorna fichas
-//func returnCards(id: String) -> [Card] {
+//MARK: Retorna fichas
+//func returnCardsList(id: String) -> [Card] {
 //    //
 //    return [Card]
 //}
@@ -23,14 +23,17 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
 //    //
 //    return Card
 //}
-////MARK: Insere ficha
-//func insertCard(card: Card) {
-//    //
+
+//MARK: Adiciona ficha
+//func addCard(category: Category, title: String, ) {
+//
 //}
-////MARK: Remove ficha
-//func removeCard(id: String, card: Card) {
-//    //
-//}
+
+//MARK: Remove ficha
+func removeCard(id: String, card: Card) {
+    context.delete(card)
+}
+
 ////MARK: Salva ficha
 //func saveCard(id: String, card: Card) {
 //    //
@@ -39,16 +42,37 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
 //func duplicateCard(id: String, card: Card) {
 //    //
 //}
-////MARK: Retorna categorias
-//func returnCategories() -> [Categories] {
-//    //
-//}
-////MARK: Insere categoria
-//func insertCategory(category: Categories) {
-//    //
-//}
-////MARK: Remove categoria
-//
+
+//MARK: Editar Ficha
+
+//MARK: Retorna categorias
+func returnCategory() -> [Category]? {
+    do {
+        items = try context.fetch(Category.fetchRequest())
+        return items
+    } catch {
+        //
+    }
+    return items
+}
+
+//MARK: Adiciona categoria
+func addCategory(name: String) {
+    let category = Category(context: context)
+    category.name = name
+    
+    do {
+        try context.save()
+    } catch {
+         print("Erro")
+    }
+}
+
+//MARK: Remove categoria
+func deleteCategory(category:Category){
+    context.delete(category)
+}
+
 ////MARK: Salva categoria
 //
 ////MARK: Insere anexo
