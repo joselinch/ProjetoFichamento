@@ -13,39 +13,74 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
 
 var items:[Category]?
 
-//MARK: Retorna fichas
-//func returnCardsList(id: String) -> [Card] {
-//    //
-//    return [Card]
-//}
-////MARK: Retorna ficha
-//func returnCard(id: String) -> Card {
-//    //
-//    return Card
-//}
+//MARK: CARD: São as fichas do fichamento bibliográfico
 
 //MARK: Adiciona ficha
-//func addCard(category: Category, title: String, ) {
-//
-//}
+func addCard(category: Category, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String) {
+    let card = Card(context: context)
+    card.anotations = cardAnotation
+    card.author = cardAuthor
+    card.date = cardDate
+    card.isFavorite = cardIsFavorite
+    card.reference = cardReference
+    
+    category.addToCard(card)
+    
+    do {
+        try context.save()
+    } catch {
+        print("Erro!")
+    }
+}
 
 //MARK: Remove ficha
 func removeCard(id: String, card: Card) {
     context.delete(card)
 }
 
-////MARK: Salva ficha
-//func saveCard(id: String, card: Card) {
-//    //
-//}
-////MARK: Duplicar ficha
-//func duplicateCard(id: String, card: Card) {
-//    //
-//}
+//MARK: Duplica ficha
+func duplicateCard(card: Card) -> Card {
+    let newCard = Card(context: context)
+    newCard.anotations = card.anotations
+    newCard.author = card.author
+    newCard.date = card.date
+    newCard.files = card.files
+    newCard.isFavorite = card.isFavorite
+    newCard.reference = card.reference
+    
+    card.categories?.addToCard(newCard)
+    
+    do {
+        try context.save()
+        return newCard
+    } catch {
+        print("Erro!")
+    }
+    
+    return newCard
+}
 
-//MARK: Editar Ficha
+//MARK: Edita Ficha
+func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String){
+    card.anotations = cardAnotation
+    card.author = cardAuthor
+    card.date = cardDate
+    card.isFavorite = cardIsFavorite
+    card.reference = cardReference
+    
+    do {
+        try context.save()
+    }
+    catch {
+        print("Erro!")
+    }
+}
 
-//MARK: Retorna categorias
+//---------------------------------------------
+
+//MARK: CATEGORY: São as pastas aonde ficam os fichamentos
+
+//MARK: Retorna categoria
 func returnCategory() -> [Category]? {
     do {
         items = try context.fetch(Category.fetchRequest())
@@ -73,10 +108,42 @@ func deleteCategory(category:Category){
     context.delete(category)
 }
 
-////MARK: Salva categoria
-//
-////MARK: Insere anexo
-//
-////MARK: Remove anexo
-//
+//MARK: Salva categoria
+func editCategory(category: Category, categoryName: String, categoryEmoji: String){
+    category.emoji = categoryEmoji
+    category.name = categoryName
+    
+    do {
+        try context.save()
+    } catch {
+        print("Erro!")
+    }
+}
+
+//---------------------------------------
+
+//MARK: FILES: São os anexos dos fichamentos
+
+//MARK: Insere anexo
+func addFile(card: Card, fileURL: URL, fileName: String) {
+    let file = Files(context: context)
+    file.fileName = fileName
+    file.archive = fileURL
+    
+    card.addToFiles(file)
+    
+    do {
+        try context.save()
+    } catch {
+        print("Erro!")
+    }
+}
+
+//MARK: Remove anexo
+func removeFile(file: Files) {
+    context.delete(file)
+}
+
+//--------------------------------------
+
 ////MARK: Pesquisar
