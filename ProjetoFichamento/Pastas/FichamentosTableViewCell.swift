@@ -1,18 +1,15 @@
 //
-//  AttachmentTableViewCell.swift
+//  FichamentosTableViewCell.swift
 //  ProjetoFichamento
 //
-//  Created by Bárbara Araújo Paim  on 04/08/21.
+//  Created by Eduarda Soares Serpa Camboim on 03/08/21.
 //
 
 import UIKit
 
-class AttachmentTableViewCell: UITableViewCell {
-    
-    @IBOutlet var fileTitle: UILabel!
-    @IBAction func buttonDelete(_ sender: Any) {
-    }
-    
+class FichamentosTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
