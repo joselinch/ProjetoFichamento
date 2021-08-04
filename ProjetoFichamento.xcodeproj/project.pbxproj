@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2409D05C26B8894800EAD3B4 /* FichamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */; };
+		2409D05E26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */; };
 		2474F20B26B0745D00E90FE7 /* Fichamento.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */; };
 		2474F20D26B0747500E90FE7 /* Pastas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20C26B0747500E90FE7 /* Pastas.storyboard */; };
 		2474F20F26B0748300E90FE7 /* Pesquisar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20E26B0748300E90FE7 /* Pesquisar.storyboard */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentoViewController.swift; sourceTree = "<group>"; };
+		2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewCell.swift; sourceTree = "<group>"; };
 		2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fichamento.storyboard; sourceTree = "<group>"; };
 		2474F20C26B0747500E90FE7 /* Pastas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pastas.storyboard; sourceTree = "<group>"; };
 		2474F20E26B0748300E90FE7 /* Pesquisar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pesquisar.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */,
+				2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */,
+				2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */,
 			);
 			path = Fichamento;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 			files = (
 				27D1F9EF26A9CEDB001987CB /* ViewController.swift in Sources */,
 				27D1F9EB26A9CEDB001987CB /* AppDelegate.swift in Sources */,
+				2409D05C26B8894800EAD3B4 /* FichamentoViewController.swift in Sources */,
 				27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */,
+				2409D05E26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift in Sources */,
 				27D1F9F526A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
