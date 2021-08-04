@@ -95,7 +95,7 @@ func returnCategory() -> [Category]? {
 }
 
 //MARK: Adiciona categoria
-func addCategory(name: String) {
+func addCategory(name: String?) {
     let category = Category(context: context)
     category.name = name
     
