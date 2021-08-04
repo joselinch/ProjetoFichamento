@@ -10,7 +10,6 @@ import UIKit
 class AttachmentTableViewCell: UITableViewCell {
     
     @IBOutlet var fileTitle: UILabel!
-    
     @IBAction func buttonDelete(_ sender: Any) {
     }
     
