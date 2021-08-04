@@ -10,7 +10,7 @@ import UIKit
 //cell ID: title-detail
 //cell ID: custom-folder
 
-class FoldersListViewController: UIViewController, UITableViewDataSource {
+class FoldersListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     
     let cellSpacingHeight: CGFloat = 50
@@ -19,9 +19,19 @@ class FoldersListViewController: UIViewController, UITableViewDataSource {
     @IBAction func addFolders(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
-        alert.addTextField()
+//        alert.addTextField(){ (textField) in
+//            textField.placeholder = "Enter a icon"
+//            //textField.keyboardType = .numberPad
+//        }
+//
+        alert.addTextField(){ (textField) in
+            textField.placeholder = "Enter a name"
+        }
         
-//        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
+        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(alertCancel)
+        let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
 //            let textField = alert.textFields![0]
 //
 //            let newPerson = Person(context: self.context)
@@ -37,9 +47,9 @@ class FoldersListViewController: UIViewController, UITableViewDataSource {
 //            }
 //
 //            self.fetchData()
-//        }
+        }
         
-//        alert.addAction(submitButton)
+        alert.addAction(alertSave)
         self.present(alert, animated: true, completion: nil)
     
     }
@@ -53,6 +63,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
       
     }
     
@@ -80,34 +91,40 @@ class FoldersListViewController: UIViewController, UITableViewDataSource {
         return cell
     } //Onde configuramos a célula mesmo
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-
-        return true
-
+    
+    
+    //teste 1
+    func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+        
+        //Delete
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
+            print("deletou")
+            completionHandler(true)
+        }
+        
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .red
+        
+        //Edit
+        let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("editou")
+            
+            success(true)
+        })
+        
+        editAction.backgroundColor = UIColor(named: "Color3Secondary")
+        editAction.image = UIImage(systemName: "pencil")
+        
+        //swipe actions
+        let swipe = UISwipeActionsConfiguration(actions:[ deleteAction, editAction])
+        
+        return swipe
     }
     
     
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
-            if editingStyle == UITableViewCell.EditingStyle.delete {
-                tableView.reloadData()
-            }
     
-        }
-    
-//    func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
-//
-//        //delete
-//        let delete = UIContextualAction(style: .normal, title: "Delete"){(action,view,completionHandler) in
-//            print("deletou")
-//            completionHandler(true)
-//        }
-//
-//        //swipe actions
-//        let swipe = UISwipeActionsConfiguration(actions:[ delete])
-//        return swipe
-//    }
-    
+    //teste 2
 //    func tableView(_ tableView: UITableView,
 //                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
 //     {
