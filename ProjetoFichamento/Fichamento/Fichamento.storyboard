@@ -65,6 +65,9 @@
                                                 <state key="normal" title="Select date">
                                                     <color key="titleColor" name="Color1Primary"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="dateButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qMk-if-C4c"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attachments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xD-E1-joF">
                                                 <rect key="frame" x="20" y="578" width="102.5" height="21"/>
@@ -98,7 +101,7 @@
                                                     <constraint firstAttribute="height" constant="230" id="2ik-LI-NDq"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wN7-er-iWj" customClass="AttachmentTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filesCell" id="wN7-er-iWj" customClass="AttachmentTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="24.5" width="414" height="60.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wN7-er-iWj" id="2aL-Fb-VMN" customClass="AttachmentTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
@@ -212,7 +215,7 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="searchBarFolder" destination="6Ox-ol-cMA" id="mrh-Jj-DPU"/>
-                        <outlet property="tableViewAttachments" destination="5bk-dx-Nkc" id="iRf-jO-hLd"/>
+                        <outlet property="tableViewAttachments" destination="5bk-dx-Nkc" id="ODe-fz-x1Y"/>
                         <outlet property="textFieldAuthor" destination="2wu-Xd-eWE" id="pDP-vD-Bgw"/>
                         <outlet property="textFieldReference" destination="wNa-b2-OV0" id="aJ6-qE-maH"/>
                         <outlet property="textFieldText" destination="Jwf-oE-1dA" id="A1R-5L-G1b"/>

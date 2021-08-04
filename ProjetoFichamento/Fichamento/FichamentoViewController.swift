@@ -7,52 +7,43 @@
 
 import UIKit
 
-class FichamentoViewController: UIViewController {
+class FichamentoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var textFieldTitle: UITextField!
-    
     @IBOutlet var searchBarFolder: UISearchBar!
-    
     @IBOutlet var textFieldText: UITextField!
-    
-    @IBOutlet var textFieldAuthor: UITextField!
-    
-    @IBOutlet var textFieldReference: UITextField!
-    
-    @IBAction func buttonStatus(_ sender: Any) {
-    }
-    
-    
-    // data button
-    
-    @IBAction func buttonAttachment(_ sender: Any) {
-    }
-    
     @IBOutlet var tableViewAttachments: UITableView!
+    @IBOutlet var textFieldAuthor: UITextField!
+    @IBOutlet var textFieldReference: UITextField!
+    @IBAction func statusButton(_ sender: Any) {
+    }
     
+    @IBAction func dateButton(_ sender: Any) {
+    }
+    
+    @IBAction func addAttachmentButton(_ sender: Any) {
+    }
     
     @IBAction func saveButton(_ sender: Any) {
         
     }
     
     override func viewDidLoad() {
-//        tableViewAttachments.dataSource = self
-//        tableViewAttachments.delegate = self
+        tableViewAttachments.dataSource = self
+        tableViewAttachments.delegate = self
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+    }
     
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
-    
-    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+
 }
