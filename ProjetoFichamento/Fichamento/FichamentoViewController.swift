@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FichamentoViewController: UIViewController, UITableViewDataSource, UITabBarDelegate, UITableViewDelegate {
+class FichamentoViewController: UIViewController {
     
     @IBOutlet var textFieldTitle: UITextField!
     
@@ -36,23 +36,23 @@ class FichamentoViewController: UIViewController, UITableViewDataSource, UITabBa
     }
     
     override func viewDidLoad() {
-        tableViewAttachments.dataSource = self
-        tableViewAttachments.delegate = self
+//        tableViewAttachments.dataSource = self
+//        tableViewAttachments.delegate = self
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        
+//    }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
     
     
 }
