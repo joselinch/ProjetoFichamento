@@ -19,13 +19,19 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func addFolders(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
-        alert.addTextField()
-        alert.addTextField()
+//        alert.addTextField(){ (textField) in
+//            textField.placeholder = "Enter a icon"
+//            //textField.keyboardType = .numberPad
+//        }
+//
+        alert.addTextField(){ (textField) in
+            textField.placeholder = "Enter a name"
+        }
         
         let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(alertCancel)
-//        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
+        let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
 //            let textField = alert.textFields![0]
 //
 //            let newPerson = Person(context: self.context)
@@ -41,9 +47,9 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
 //            }
 //
 //            self.fetchData()
-//        }
+        }
         
-//        alert.addAction(submitButton)
+        alert.addAction(alertSave)
         self.present(alert, animated: true, completion: nil)
     
     }
