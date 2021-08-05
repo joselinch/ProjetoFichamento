@@ -36,6 +36,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
 
     }
     
@@ -46,9 +47,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filesCell", for: indexPath) as! AttachmentTableViewCell
         let attachment = self.attachmentItem![indexPath.row]
-        let person = family.person?.allObjects as? [Person]
-        cell.titleLabel.text = family.name
-        cell.subtitleLabel.text = String(person?[0].name ?? "ferrou-se")
+        cell.fileTitle.text = attachment.fileName
         return cell
     }
 
