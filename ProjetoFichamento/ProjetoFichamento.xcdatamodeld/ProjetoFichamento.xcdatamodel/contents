@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Card" representedClassName="Card" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Card" representedClassName="Card" syncable="YES" codeGenerationType="category">
         <attribute name="anotations" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -12,20 +12,20 @@
         <relationship name="categories" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category"/>
         <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Files"/>
     </entity>
-    <entity name="Category" representedClassName="Category" syncable="YES">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="category">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="card" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Card"/>
     </entity>
-    <entity name="Files" representedClassName="Files" syncable="YES">
+    <entity name="Files" representedClassName="Files" syncable="YES" codeGenerationType="category">
         <attribute name="archive" optional="YES" attributeType="URI"/>
         <attribute name="fileName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="card" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card"/>
     </entity>
-    <entity name="Search" representedClassName="Search" syncable="YES">
+    <entity name="Search" representedClassName="Search" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="search" optional="YES" attributeType="String"/>
     </entity>
