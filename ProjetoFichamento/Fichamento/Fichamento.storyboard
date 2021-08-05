@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="829"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtC-Gc-m2K" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="927"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="973"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cgi-tk-6wT">
                                                 <rect key="frame" x="20" y="25" width="374" height="34"/>
@@ -52,16 +52,22 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpg-zU-oJK">
-                                                <rect key="frame" x="20" y="478" width="374" height="30"/>
-                                                <state key="normal" title="Status">
-                                                    <color key="titleColor" name="Color1Primary"/>
-                                                </state>
+                                                <rect key="frame" x="20" y="483" width="374" height="34.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="ucr-RL-0Z5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Reading status"/>
                                                 <connections>
-                                                    <action selector="buttonStatus:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="th2-4u-gJ7"/>
+                                                    <action selector="presentStatusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fcu-xZ-Pme"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsk-xF-Mij">
-                                                <rect key="frame" x="20" y="528" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="542" width="374" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="8kh-ZL-1Nz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Select date">
                                                     <color key="titleColor" name="Color1Primary"/>
                                                 </state>
@@ -70,13 +76,17 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attachments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xD-E1-joF">
-                                                <rect key="frame" x="20" y="578" width="102.5" height="21"/>
+                                                <rect key="frame" x="20" y="606" width="102.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzs-Gx-nAk">
-                                                <rect key="frame" x="20" y="598" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="630" width="374" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="LN6-5L-dLS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Add archive">
                                                     <color key="titleColor" name="Color1Primary"/>
                                                 </state>
@@ -85,7 +95,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otl-NH-Zpq">
-                                                <rect key="frame" x="20" y="886" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="932" width="374" height="30"/>
                                                 <color key="backgroundColor" name="Color1Primary"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" name="BackgroundsPrimary"/>
@@ -95,7 +105,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bk-dx-Nkc">
-                                                <rect key="frame" x="0.0" y="636" width="414" height="230"/>
+                                                <rect key="frame" x="0.0" y="682" width="414" height="230"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="230" id="2ik-LI-NDq"/>
@@ -108,8 +118,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="paperclip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-Dp-Om1">
-                                                                    <rect key="frame" x="20" y="4.5" width="20" height="48"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperclip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-Dp-Om1">
+                                                                    <rect key="frame" x="20" y="4.5" width="20" height="51.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="8zY-pA-Oy2"/>
                                                                         <constraint firstAttribute="width" constant="20" id="bWv-wG-1iz"/>
@@ -170,6 +180,7 @@
                                             <constraint firstItem="6Ox-ol-cMA" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="JVn-tH-dR4"/>
                                             <constraint firstItem="Rsk-xF-Mij" firstAttribute="top" secondItem="hpg-zU-oJK" secondAttribute="bottom" constant="20" id="K3Z-xv-BV2"/>
                                             <constraint firstItem="Jwf-oE-1dA" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" id="MED-Lr-2zN"/>
+                                            <constraint firstItem="Tzs-Gx-nAk" firstAttribute="top" secondItem="6xD-E1-joF" secondAttribute="top" constant="24" id="Mmw-0E-Ioh"/>
                                             <constraint firstItem="2wu-Xd-eWE" firstAttribute="top" secondItem="Jwf-oE-1dA" secondAttribute="bottom" constant="20" id="OE1-87-32i"/>
                                             <constraint firstItem="wNa-b2-OV0" firstAttribute="top" secondItem="2wu-Xd-eWE" secondAttribute="bottom" constant="20" id="PjJ-zu-shY"/>
                                             <constraint firstItem="5bk-dx-Nkc" firstAttribute="top" secondItem="Tzs-Gx-nAk" secondAttribute="bottom" constant="8" id="Qct-YV-iNh"/>
@@ -181,7 +192,6 @@
                                             <constraint firstAttribute="bottom" secondItem="Otl-NH-Zpq" secondAttribute="bottom" constant="11" id="ZLf-vu-Ci2"/>
                                             <constraint firstAttribute="trailing" secondItem="Rsk-xF-Mij" secondAttribute="trailing" constant="20" id="ZZx-KI-AfP"/>
                                             <constraint firstItem="Rsk-xF-Mij" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="b5l-nf-tsh"/>
-                                            <constraint firstItem="Tzs-Gx-nAk" firstAttribute="top" secondItem="Rsk-xF-Mij" secondAttribute="bottom" constant="40" id="iwT-Zr-dvM"/>
                                             <constraint firstAttribute="trailing" secondItem="5bk-dx-Nkc" secondAttribute="trailing" id="kVX-IH-Ql9"/>
                                             <constraint firstAttribute="trailing" secondItem="wNa-b2-OV0" secondAttribute="trailing" constant="20" id="o9l-Zf-Iud"/>
                                             <constraint firstItem="6Ox-ol-cMA" firstAttribute="top" secondItem="Cgi-tk-6wT" secondAttribute="bottom" constant="20" id="sAG-oz-Nrj"/>
@@ -214,6 +224,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="presentStatusButtonOutlet" destination="hpg-zU-oJK" id="GDx-Ce-5Rf"/>
                         <outlet property="searchBarFolder" destination="6Ox-ol-cMA" id="mrh-Jj-DPU"/>
                         <outlet property="tableViewAttachments" destination="5bk-dx-Nkc" id="ODe-fz-x1Y"/>
                         <outlet property="textFieldAuthor" destination="2wu-Xd-eWE" id="pDP-vD-Bgw"/>
