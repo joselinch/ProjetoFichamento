@@ -71,6 +71,11 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
         dateButtonOutlet.layer.borderWidth = 1
         dateButtonOutlet.layer.cornerRadius = 6
         dateButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+        
+        attachmentButtonOutlet.layer.cornerRadius = 6.0
+        attachmentButtonOutlet.layer.borderWidth = 1
+        attachmentButtonOutlet.layer.cornerRadius = 6
+        attachmentButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
     }
     
     //MARK: Attachments TableView
