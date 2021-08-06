@@ -140,7 +140,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             success(true)
         })
         
-        duplicateAction.backgroundColor = UIColor(named: "Color2Secondary")
+        duplicateAction.backgroundColor = UIColor(named: "Color4Secondary")
         duplicateAction.image = UIImage(systemName: "doc.on.doc")
         
         //swipe actions
