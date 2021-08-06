@@ -120,6 +120,12 @@ func addCategory(name: String?) {
 //MARK: Remove categoria
 func deleteCategory(category: Category){
     context.delete(category)
+    
+    do {
+        try context.save()
+    } catch {
+        print("Erro!")
+    }
 }
 
 //MARK: Salva categoria

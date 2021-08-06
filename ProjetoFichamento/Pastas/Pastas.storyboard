@@ -225,6 +225,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navbarTitle" destination="8n4-xR-H8U" id="4io-1n-R7b"/>
                         <outlet property="tableView" destination="lLL-wW-zoY" id="vD3-8b-k7m"/>
                     </connections>
                 </viewController>

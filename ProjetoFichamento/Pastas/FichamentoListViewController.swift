@@ -41,6 +41,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     
     
+    @IBOutlet weak var navbarTitle: UINavigationItem!
     var category: Category?
     var cards: [Card]?
     
@@ -49,7 +50,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
        
         tableView.dataSource = self
         tableView.delegate = self
-        
+        navbarTitle.title = category?.name
         
     }
     
