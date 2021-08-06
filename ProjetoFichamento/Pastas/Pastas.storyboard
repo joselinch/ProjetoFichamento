@@ -93,7 +93,6 @@
                                         <connections>
                                             <outlet property="detailLabel" destination="wGK-E8-GKl" id="1oy-OE-kkW"/>
                                             <outlet property="titleLabel" destination="bZv-WE-C2z" id="QBU-4T-lPv"/>
-                                            <segue destination="IV9-dv-h98" kind="show" id="QHZ-lP-QVc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -119,6 +118,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="j7S-hc-lP9" id="s4A-eg-meU"/>
+                        <segue destination="IV9-dv-h98" kind="show" identifier="segueCards" id="ifZ-mO-u9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -217,7 +217,13 @@
                             <constraint firstItem="6IB-jz-Nid" firstAttribute="trailing" secondItem="lLL-wW-zoY" secondAttribute="trailing" id="yoj-TB-mjn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fichamentos" largeTitleDisplayMode="never" id="8n4-xR-H8U"/>
+                    <navigationItem key="navigationItem" title="Fichamentos" largeTitleDisplayMode="never" id="8n4-xR-H8U">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Tcb-tx-jIj">
+                            <connections>
+                                <action selector="addCardButton:" destination="IV9-dv-h98" id="OrA-ls-4mc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lLL-wW-zoY" id="vD3-8b-k7m"/>
                     </connections>

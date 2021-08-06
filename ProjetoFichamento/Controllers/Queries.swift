@@ -16,10 +16,11 @@ var items:[Category]?
 //MARK: CARD: São as fichas do fichamento bibliográfico
 
 //MARK: Adiciona ficha
-func addCard(category: Category, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String) {
+func addCard(category: Category, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String) -> Card {
     let card = Card(context: context)
     card.anotations = cardAnotation
     card.author = cardAuthor
+    card.title = cardTitle
     card.date = cardDate
     card.status = cardStatus
     card.isFavorite = cardIsFavorite
@@ -29,9 +30,11 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
     
     do {
         try context.save()
+        return card
     } catch {
         print("Erro!")
     }
+    return card
 }
 
 //MARK: Remove ficha
@@ -45,6 +48,7 @@ func duplicateCard(card: Card) -> Card {
     newCard.anotations = card.anotations
     newCard.author = card.author
     newCard.date = card.date
+    newCard.title = card.title
     newCard.status = card.status
     newCard.files = card.files
     newCard.isFavorite = card.isFavorite
@@ -63,10 +67,11 @@ func duplicateCard(card: Card) -> Card {
 }
 
 //MARK: Edita Ficha
-func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String){
+func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String){
     card.anotations = cardAnotation
     card.author = cardAuthor
     card.date = cardDate
+    card.title = cardTitle
     card.status = cardStatus
     card.isFavorite = cardIsFavorite
     card.reference = cardReference

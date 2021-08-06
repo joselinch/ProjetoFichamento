@@ -159,7 +159,12 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         return swipe
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func retornaValores() -> (senderCards: [Card], senderCategory: Category?) {
+            return (pastas?[indexPath.row].card?.allObjects as! [Card], pastas?[indexPath.row])
+        }
+        performSegue(withIdentifier: "segueCards", sender: retornaValores())
+    }
     
     
     //teste 2
@@ -186,7 +191,14 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
 //     }
 //
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueCards", let indexPath = sender as? (senderCards: [Card], senderCategory: Category?){
+            let destination = segue.destination as? FichamentoListViewController
+            destination?.cards = indexPath.senderCards
+            destination?.category = indexPath.senderCategory
+            
+        }
+    }
 
 }
 
