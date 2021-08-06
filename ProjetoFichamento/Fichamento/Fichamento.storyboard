@@ -102,7 +102,7 @@
                                                     <color key="titleColor" name="Color1Primary"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="buttonAttachment:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QH3-dc-BPE"/>
+                                                    <action selector="addAttachmentButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZtM-c3-qzO"/>
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bk-dx-Nkc">

@@ -12,6 +12,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var attachmentItem: [Files]?
     var status: String = ""
+    var selectedAttachment = ""
     @IBOutlet var textFieldTitle: UITextField!
     @IBOutlet var searchBarFolder: UISearchBar!
     @IBOutlet var textFieldText: UITextField!
@@ -19,7 +20,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var textFieldAuthor: UITextField!
     @IBOutlet var textFieldReference: UITextField!
     
-    //MARK: Reading Status
+    //MARK: Reading Status Button
     @IBOutlet var presentStatusButtonOutlet: UIButton!
     @IBAction func presentStatusButton(_ sender: Any) {
         let statusSheet = UIAlertController(title: "Choose your reading status:", message: nil, preferredStyle: .actionSheet)
@@ -47,7 +48,23 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     //MARK: Attachment Button
     @IBOutlet var attachmentButtonOutlet: UIButton!
     @IBAction func addAttachmentButton(_ sender: Any) {
-        print("Funcionou")
+        
+        let attachmentSheet = UIAlertController(title: nil, message: "Choose which file you want to attach:", preferredStyle: .actionSheet)
+        //MARK: To-do Ver como selecionar para abrir os files/camera do usuário (tem que pedir permissao)
+        let attachmentOptions = ["File","Camera","Image or Picture"]
+        
+        for item in attachmentOptions {
+            let setAction = UIAlertAction(title: "\(item)", style: .default) { (_) in
+                self.selectedAttachment = item
+                self.attachmentButtonOutlet.setTitle(item, for: .normal)
+            }
+            attachmentSheet.addAction(setAction)
+        }
+        
+        let sheetCancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        attachmentSheet.addAction(sheetCancelButton)
+        
+        self.present(attachmentSheet, animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: Any) {
