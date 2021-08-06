@@ -51,6 +51,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         navbarTitle.title = category?.name
+        //fetchData()
         
     }
     
@@ -83,6 +84,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         
         //Delete
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
+            
             let cardSelected = self.cards![indexPath.row]
             
             let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
@@ -94,9 +96,11 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
 
                 removeCard(card: cardSelected)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.fetchData()
+//                DispatchQueue.main.async {
+//
+//                    self.tableView.reloadData()
+//                }
             }
             
             alert.addAction(alertSave)

@@ -93,7 +93,6 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         
         //Delete
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
-            print("deletou")
             
             let folderSelected = self.pastas![indexPath.row]
             
