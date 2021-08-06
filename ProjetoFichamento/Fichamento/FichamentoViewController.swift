@@ -39,27 +39,38 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     //MARK: Calendar Picker
+    @IBOutlet var dateButtonOutlet: UIButton!
     @IBAction func dateButton(_ sender: Any) {
         print("Clica")
     }
     
     //MARK: Attachment Button
+    @IBOutlet var attachmentButtonOutlet: UIButton!
     @IBAction func addAttachmentButton(_ sender: Any) {
         print("Funcionou")
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Success", message: "Record saved!", preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
+        //MARK: To do: alertar somente quando for feito o save do card com sucesso e adicionar o dismiss da tela para a tela de fichamentos
+        let sucessAlert = UIAlertController(title: "Success", message: "Record saved!", preferredStyle: .alert)
+        let alertOkButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        sucessAlert.addAction(alertOkButton)
+        self.present(sucessAlert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         tableViewAttachments.dataSource = self
         tableViewAttachments.delegate = self
+        
         presentStatusButtonOutlet.layer.cornerRadius = 6.0
         presentStatusButtonOutlet.layer.borderWidth = 1
         presentStatusButtonOutlet.layer.cornerRadius = 6
         presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+        
+        dateButtonOutlet.layer.cornerRadius = 6.0
+        dateButtonOutlet.layer.borderWidth = 1
+        dateButtonOutlet.layer.cornerRadius = 6
+        dateButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
     }
     
     //MARK: Attachments TableView

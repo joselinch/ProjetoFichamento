@@ -52,12 +52,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpg-zU-oJK">
-                                                <rect key="frame" x="20" y="483" width="374" height="34.5"/>
+                                                <rect key="frame" x="20" y="478" width="374" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="ucr-RL-0Z5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Reading status"/>
+                                                <state key="normal" title="Status">
+                                                    <color key="titleColor" red="0.93486154079999995" green="0.36744245889999999" blue="0.1489127874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="presentStatusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fcu-xZ-Pme"/>
                                                 </connections>
@@ -224,6 +226,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="attachmentButtonOutlet" destination="Tzs-Gx-nAk" id="IpF-Px-VnP"/>
+                        <outlet property="dateButtonOutlet" destination="Rsk-xF-Mij" id="AbV-HY-He7"/>
                         <outlet property="presentStatusButtonOutlet" destination="hpg-zU-oJK" id="GDx-Ce-5Rf"/>
                         <outlet property="searchBarFolder" destination="6Ox-ol-cMA" id="mrh-Jj-DPU"/>
                         <outlet property="tableViewAttachments" destination="5bk-dx-Nkc" id="ODe-fz-x1Y"/>
