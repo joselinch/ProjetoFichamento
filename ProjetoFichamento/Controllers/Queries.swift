@@ -40,6 +40,12 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
 //MARK: Remove ficha
 func removeCard(card: Card) {
     context.delete(card)
+    
+    do {
+        try context.save()
+    } catch {
+        //
+    }
 }
 
 //MARK: Duplica ficha
