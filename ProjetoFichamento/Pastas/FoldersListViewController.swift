@@ -52,6 +52,10 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
     func fetchData(){
         pastas = returnCategory()
         DispatchQueue.main.async {

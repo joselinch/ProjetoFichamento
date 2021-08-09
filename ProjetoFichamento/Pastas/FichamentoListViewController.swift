@@ -36,7 +36,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         
         alert.addAction(alertSave)
         self.present(alert, animated: true, completion: nil)
-        
+    
     }
 
 //MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
@@ -51,11 +51,14 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         
         tableView.dataSource = self
         tableView.delegate = self
+        cards = category?.card?.allObjects as? [Card]
         navbarTitle.title = category?.name
-        //fetchData()
+        self.tableView.reloadData()
+        
     }
 
     func fetchData() {
+        cards = category?.card?.allObjects as? [Card]
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -67,13 +70,14 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (category?.card?.allObjects.count)!
+        return cards?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-fichamento", for: indexPath) as! FichamentosTableViewCell
         
+
         let card = cards?[indexPath.row]
         
         cell.titleLabel.text = card?.title
@@ -98,8 +102,10 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             alert.addAction(alertCancel)
             
             let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
+
                 
-                removeCard(card: cardSelected)
+                removeCard(category: self.category!, card: cardSelected)
+             
                 self.fetchData()
                 //                DispatchQueue.main.async {
                 //

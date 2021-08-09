@@ -38,7 +38,8 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
 }
 
 //MARK: Remove ficha
-func removeCard(card: Card) {
+func removeCard(category: Category, card: Card) {
+    category.removeFromCard(card)
     context.delete(card)
     
     do {
