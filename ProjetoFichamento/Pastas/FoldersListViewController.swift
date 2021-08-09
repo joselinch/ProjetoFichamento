@@ -85,7 +85,6 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         cell.titleLabel.text = folders.name
         let records = folders.card?.allObjects as? [Card]
         cell.detailLabel.text = "\(records?.count ?? 0) Records"
-        fetchData()
 
         return cell
     } //Onde configuramos a célula mesmo
