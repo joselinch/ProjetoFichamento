@@ -50,6 +50,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func addAttachmentButton(_ sender: Any) {
         
         let attachmentSheet = UIAlertController(title: nil, message: "Choose which file you want to attach:", preferredStyle: .actionSheet)
+        
         //MARK: To-do Ver como selecionar para abrir os files/camera do usuário (tem que pedir permissao)
         let attachmentOptions = ["File","Camera","Image or Picture"]
         

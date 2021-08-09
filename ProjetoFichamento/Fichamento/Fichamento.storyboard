@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -121,6 +122,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperclip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-Dp-Om1">
                                                                     <rect key="frame" x="20" y="4.5" width="20" height="51.5"/>
+                                                                    <color key="tintColor" name="BackgroundsTertiary"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="8zY-pA-Oy2"/>
                                                                         <constraint firstAttribute="width" constant="20" id="bWv-wG-1iz"/>
@@ -138,6 +140,7 @@
                                                                         <constraint firstAttribute="height" constant="50" id="bJw-Pt-4Z9"/>
                                                                         <constraint firstAttribute="width" constant="20" id="eLT-VU-tz5"/>
                                                                     </constraints>
+                                                                    <color key="tintColor" name="BackgroundsTertiary"/>
                                                                     <state key="normal" title="Button" image="trash" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="buttonDelete:" destination="wN7-er-iWj" eventType="touchUpInside" id="csA-VS-u4E"/>
@@ -163,6 +166,16 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWU-oB-Tgf">
+                                                <rect key="frame" x="362" y="497" width="16" height="5.5"/>
+                                                <color key="tintColor" name="Color1Primary"/>
+                                                <imageReference key="image" image="chevron.compact.down" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-Z7-gEk">
+                                                <rect key="frame" x="360.5" y="552.5" width="17.5" height="14.5"/>
+                                                <color key="tintColor" name="Color1Primary"/>
+                                                <imageReference key="image" image="calendar" catalog="system" symbolScale="small"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -174,11 +187,13 @@
                                             <constraint firstItem="Tzs-Gx-nAk" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="5bd-nu-1SJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Cgi-tk-6wT" secondAttribute="trailing" constant="20" id="8Jp-IJ-7T5"/>
                                             <constraint firstItem="Jwf-oE-1dA" firstAttribute="top" secondItem="6Ox-ol-cMA" secondAttribute="bottom" constant="20" id="9Om-WO-ZE6"/>
+                                            <constraint firstItem="fWU-oB-Tgf" firstAttribute="centerY" secondItem="hpg-zU-oJK" secondAttribute="centerY" id="Acu-3j-nGc"/>
                                             <constraint firstItem="2wu-Xd-eWE" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="AnY-4M-KDy"/>
                                             <constraint firstItem="hpg-zU-oJK" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="Cwj-ml-JHU"/>
                                             <constraint firstAttribute="trailing" secondItem="Jwf-oE-1dA" secondAttribute="trailing" id="Ibb-Hz-m2z"/>
                                             <constraint firstAttribute="trailing" secondItem="2wu-Xd-eWE" secondAttribute="trailing" constant="20" id="JNq-ke-43l"/>
                                             <constraint firstItem="6Ox-ol-cMA" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="JVn-tH-dR4"/>
+                                            <constraint firstItem="oL2-Z7-gEk" firstAttribute="centerY" secondItem="Rsk-xF-Mij" secondAttribute="centerY" id="Jme-6z-NG3"/>
                                             <constraint firstItem="Rsk-xF-Mij" firstAttribute="top" secondItem="hpg-zU-oJK" secondAttribute="bottom" constant="16" id="K3Z-xv-BV2"/>
                                             <constraint firstItem="Jwf-oE-1dA" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" id="MED-Lr-2zN"/>
                                             <constraint firstItem="2wu-Xd-eWE" firstAttribute="top" secondItem="Jwf-oE-1dA" secondAttribute="bottom" constant="20" id="OE1-87-32i"/>
@@ -190,7 +205,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Rsk-xF-Mij" secondAttribute="trailing" constant="20" id="ZZx-KI-AfP"/>
                                             <constraint firstItem="Rsk-xF-Mij" firstAttribute="leading" secondItem="CtC-Gc-m2K" secondAttribute="leading" constant="20" id="b5l-nf-tsh"/>
                                             <constraint firstItem="Tzs-Gx-nAk" firstAttribute="top" secondItem="6xD-E1-joF" secondAttribute="bottom" constant="16" id="bId-TF-HWM"/>
+                                            <constraint firstItem="hpg-zU-oJK" firstAttribute="trailing" secondItem="fWU-oB-Tgf" secondAttribute="trailing" constant="16" id="giw-G9-1rI"/>
                                             <constraint firstAttribute="trailing" secondItem="5bk-dx-Nkc" secondAttribute="trailing" id="kVX-IH-Ql9"/>
+                                            <constraint firstItem="Rsk-xF-Mij" firstAttribute="trailing" secondItem="oL2-Z7-gEk" secondAttribute="trailing" constant="16" id="kYf-z6-Oix"/>
                                             <constraint firstAttribute="trailing" secondItem="wNa-b2-OV0" secondAttribute="trailing" constant="20" id="o9l-Zf-Iud"/>
                                             <constraint firstItem="6Ox-ol-cMA" firstAttribute="top" secondItem="Cgi-tk-6wT" secondAttribute="bottom" constant="20" id="sAG-oz-Nrj"/>
                                             <constraint firstItem="Cgi-tk-6wT" firstAttribute="top" secondItem="CtC-Gc-m2K" secondAttribute="top" constant="25" id="uTz-a6-TyE"/>
@@ -268,6 +285,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
         <image name="doc.badge.ellipsis" catalog="system" width="119" height="128"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
@@ -276,6 +295,9 @@
         </namedColor>
         <namedColor name="BackgroundsPrimary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundsTertiary">
+            <color red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color1Primary">
             <color red="0.92941176470588238" green="0.4392156862745098" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
