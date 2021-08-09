@@ -12,10 +12,7 @@ import UIKit
 
 class FoldersListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    
-    let cellSpacingHeight: CGFloat = 50
-
-    
+//MARK: - Add folder
     @IBAction func addFolders(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
@@ -39,11 +36,13 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         self.present(alert, animated: true, completion: nil)
     
     }
-    
+
+//MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
+   
     @IBOutlet weak var tableView: UITableView!
     
     private var pastas: [Category]?
-    
+    let cellSpacingHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +50,6 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         fetchData()
-      
     }
     
     func fetchData(){
@@ -60,6 +58,8 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
         }
     }
+
+//MARK: - Funções tableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -87,11 +87,12 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     } //Onde configuramos a célula mesmo
     
     
-    
-    //teste 1
+//MARK: - Swipe
+
     func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
-        
-        //Delete
+       
+        //MARK: - Deletar
+      
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
             
             let folderSelected = self.pastas![indexPath.row]
@@ -118,7 +119,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .red
         
-        //Edit
+        //MARK: - Editar
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             
             let folderSelected = self.pastas![indexPath.row]
@@ -157,38 +158,14 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         
         return swipe
     }
-    
+
+//MARK: - Segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         func retornaValores() -> (senderCards: [Card], senderCategory: Category?) {
             return (pastas?[indexPath.row].card?.allObjects as! [Card], pastas?[indexPath.row])
         }
         performSegue(withIdentifier: "segueCards", sender: retornaValores())
     }
-    
-    
-    //teste 2
-//    func tableView(_ tableView: UITableView,
-//                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//                 success(true)
-//             })
-//    editAction.backgroundColor = .blue
-//
-//             return UISwipeActionsConfiguration(actions: [editAction])
-//     }
-//
-//     func tableView(_ tableView: UITableView,
-//                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let deleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//             success(true)
-//         })
-//         deleteAction.backgroundColor = .red
-//
-//         return UISwipeActionsConfiguration(actions: [deleteAction])
-//     }
-//
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueCards", let indexPath = sender as? (senderCards: [Card], senderCategory: Category?){

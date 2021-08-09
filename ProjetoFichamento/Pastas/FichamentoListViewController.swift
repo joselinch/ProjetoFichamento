@@ -11,7 +11,7 @@ import UIKit
 
 class FichamentoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+//MARK: - Add fichamento
     @IBAction func addCardButton(_ sender: Any) {
         let alert = UIAlertController(title: "New Card", message: "Enter a title for this card", preferredStyle: .alert)
         
@@ -36,34 +36,35 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         
         alert.addAction(alertSave)
         self.present(alert, animated: true, completion: nil)
-    
+        
     }
+
+//MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
     @IBOutlet weak var tableView: UITableView!
-    
-    
     @IBOutlet weak var navbarTitle: UINavigationItem!
+    
     var category: Category?
     var cards: [Card]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         tableView.dataSource = self
         tableView.delegate = self
         navbarTitle.title = category?.name
         //fetchData()
-        
     }
-    
+
     func fetchData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+//MARK: - Funções tableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    } //retorna o número de pastas cadastradas
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (category?.card?.allObjects.count)!
@@ -72,17 +73,20 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-fichamento", for: indexPath) as! FichamentosTableViewCell
-         
+        
         let card = cards?[indexPath.row]
         
         cell.titleLabel.text = card?.title
-
+        
         return cell
     }
     
+//MARK: - Swipe
+    
     func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
         
-        //Delete
+        //MARK: - Deletar
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
             
             let cardSelected = self.cards![indexPath.row]
@@ -94,13 +98,13 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             alert.addAction(alertCancel)
             
             let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
-
+                
                 removeCard(card: cardSelected)
                 self.fetchData()
-//                DispatchQueue.main.async {
-//
-//                    self.tableView.reloadData()
-//                }
+                //                DispatchQueue.main.async {
+                //
+                //                    self.tableView.reloadData()
+                //                }
             }
             
             alert.addAction(alertSave)
@@ -111,7 +115,8 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .red
         
-        //Edit
+        //MARK: - Editar
+        
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("editou")
             
@@ -121,7 +126,8 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         editAction.backgroundColor = UIColor(named: "Color3Secondary")
         editAction.image = UIImage(systemName: "pencil")
         
-        //Duplicate
+        //MARK: - Duplicar
+        
         let duplicateAction = UIContextualAction(style: .normal, title:  "Duplicate", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             let cardSelected = self.cards![indexPath.row]
             
@@ -132,8 +138,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             alert.addAction(alertCancel)
             
             let alertSave = UIAlertAction(title: "Duplicate", style: .default) { (action) in
-                  
-    
+                
                 let newCard = duplicateCard(card: cardSelected)
                 self.cards?.append(newCard)
                 self.fetchData()
