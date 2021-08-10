@@ -82,7 +82,6 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         tableViewAttachments.dataSource = self
         tableViewAttachments.delegate = self
-        textFieldTitle.becomeFirstResponder()
         presentStatusButtonOutlet.layer.cornerRadius = 6.0
         presentStatusButtonOutlet.layer.borderWidth = 1
         presentStatusButtonOutlet.layer.cornerRadius = 6
