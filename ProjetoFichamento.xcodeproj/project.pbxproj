@@ -27,6 +27,7 @@
 		9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */; };
 		9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */; };
 		9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */; };
+		9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F95126C1E4BB00AC2118 /* DateViewController.swift */; };
 		B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */; };
 		B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */; };
 		B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC526B1F42400874612 /* dataFolders.swift */; };
@@ -58,6 +59,7 @@
 		9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9F63F95126C1E4BB00AC2118 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentosTableViewCell.swift; sourceTree = "<group>"; };
 		B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentoListViewController.swift; sourceTree = "<group>"; };
 		B1EFFCC526B1F42400874612 /* dataFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataFolders.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */,
 				2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */,
 				2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */,
+				9F63F95126C1E4BB00AC2118 /* DateViewController.swift */,
 			);
 			path = Fichamento;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */,
 				9F2CF93526B9E76D000E236D /* Card+CoreDataClass.swift in Sources */,
 				9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */,
 				9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */,
