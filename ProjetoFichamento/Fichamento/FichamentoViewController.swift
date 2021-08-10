@@ -11,8 +11,8 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var attachmentItem: [Files]?
-    var status: String = ""
     var selectedAttachment = ""
+    var readingStatus = ""
     @IBOutlet var textFieldTitle: UITextField!
     @IBOutlet var searchBarFolder: UISearchBar!
     @IBOutlet var userNotes: UITextView!
@@ -28,7 +28,7 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
         
         for item in statusOptions {
             let setAction = UIAlertAction(title: "\(item)", style: .default) { (_) in
-                self.status = item
+                self.readingStatus = item
                 self.presentStatusButtonOutlet.setTitle(item, for: .normal)
             }
             statusSheet.addAction(setAction)
@@ -42,13 +42,11 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     //MARK: Calendar Picker
     @IBOutlet var dateButtonOutlet: UIButton!
     @IBAction func dateButton(_ sender: Any) {
-        print("Clica")
     }
     
     //MARK: Attachment Button
     @IBOutlet var attachmentButtonOutlet: UIButton!
     @IBAction func addAttachmentButton(_ sender: Any) {
-        
         let attachmentSheet = UIAlertController(title: nil, message: "Choose which file you want to attach:", preferredStyle: .actionSheet)
         
         //MARK: To-do Ver como selecionar para abrir os files/camera do usuário (tem que pedir permissao)
@@ -64,16 +62,21 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let sheetCancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         attachmentSheet.addAction(sheetCancelButton)
-        
         self.present(attachmentSheet, animated: true, completion: nil)
     }
     
-    @IBAction func saveButton(_ sender: Any) {
-        //MARK: To do: alertar somente quando for feito o save do card com sucesso e adicionar o dismiss da tela para a tela de fichamentos
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         let sucessAlert = UIAlertController(title: "Success", message: "Record saved!", preferredStyle: .alert)
-        let alertOkButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        sucessAlert.addAction(alertOkButton)
+//        let alertOkButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//        sucessAlert.addAction(alertOkButton)
         self.present(sucessAlert, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+        //performSegue(withIdentifier: "", sender: nil)
+    }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+        //performSegue(withIdentifier: "", sender: nil)
     }
     
     override func viewDidLoad() {
