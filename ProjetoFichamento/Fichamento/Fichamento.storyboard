@@ -24,29 +24,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtC-Gc-m2K" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="903.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Record Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cgi-tk-6wT">
-                                                <rect key="frame" x="20" y="25" width="374" height="34"/>
-                                                <color key="backgroundColor" name="BackgroundsPrimary"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Record Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cgi-tk-6wT">
+                                                <rect key="frame" x="20" y="25" width="374" height="22"/>
                                                 <color key="textColor" name="GreenPrimary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <searchBar contentMode="redraw" placeholder="Folder" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-ol-cMA">
-                                                <rect key="frame" x="20" y="79" width="374" height="51"/>
-                                                <color key="backgroundColor" name="BackgroundsPrimary"/>
-                                                <color key="tintColor" name="GreenPrimary"/>
-                                                <color key="barTintColor" name="BackgroundsPrimary"/>
+                                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Folder" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-ol-cMA">
+                                                <rect key="frame" x="20" y="67" width="374" height="51"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-Xd-eWE">
-                                                <rect key="frame" x="20" y="370" width="374" height="34"/>
-                                                <color key="backgroundColor" name="BackgroundsPrimary"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-Xd-eWE">
+                                                <rect key="frame" x="20" y="394" width="374" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reference" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNa-b2-OV0">
-                                                <rect key="frame" x="20" y="424" width="374" height="34"/>
-                                                <color key="backgroundColor" name="BackgroundsPrimary"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reference" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNa-b2-OV0">
+                                                <rect key="frame" x="20" y="436" width="374" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -170,9 +164,8 @@
                                                 <imageReference key="image" image="calendar" catalog="system" symbolScale="small"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9L-Lz-5kS">
-                                                <rect key="frame" x="0.0" y="150" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="138" width="414" height="236"/>
                                                 <color key="backgroundColor" name="Color4Tertiary"/>
-                                                <color key="tintColor" name="GreenPrimary"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -242,7 +235,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Record" id="qqQ-3c-GE6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="liJ-Qv-JyF">
-                            <color key="tintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="cancelButton:" destination="Y6W-OH-hqX" id="nHa-P6-OwJ"/>
                             </connections>
@@ -333,8 +325,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="WBS-kX-trD">
-                                <rect key="frame" x="200" y="492" width="194" height="52"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="WBS-kX-trD">
+                                <rect key="frame" x="282" y="492" width="112" height="52"/>
                                 <color key="backgroundColor" red="0.93486154079999995" green="0.36744245889999999" blue="0.1489127874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.93486154079999995" green="0.36744245889999999" blue="0.1489127874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -346,9 +338,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JaU-yS-nhB" firstAttribute="bottom" secondItem="WBS-kX-trD" secondAttribute="bottom" constant="264" id="7KB-hQ-1ly"/>
-                            <constraint firstItem="JaU-yS-nhB" firstAttribute="trailing" secondItem="WBS-kX-trD" secondAttribute="trailing" constant="20" id="H4J-BC-FrT"/>
                             <constraint firstItem="WBS-kX-trD" firstAttribute="top" secondItem="JaU-yS-nhB" secondAttribute="top" constant="492" id="HVg-U6-Zp9"/>
-                            <constraint firstItem="WBS-kX-trD" firstAttribute="leading" secondItem="JaU-yS-nhB" secondAttribute="leading" constant="200" id="ge1-p7-tg2"/>
+                            <constraint firstItem="JaU-yS-nhB" firstAttribute="trailing" secondItem="WBS-kX-trD" secondAttribute="trailing" constant="20" id="Rjf-IH-20Q"/>
+                            <constraint firstItem="WBS-kX-trD" firstAttribute="leading" secondItem="JaU-yS-nhB" secondAttribute="leading" constant="282" id="TF7-WD-JeK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DWE-T7-PAI"/>
@@ -383,9 +375,6 @@
         <image name="doc.badge.ellipsis" catalog="system" width="119" height="128"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BackgroundsPrimary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
