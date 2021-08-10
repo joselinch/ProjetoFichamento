@@ -12,10 +12,7 @@ import UIKit
 
 class FoldersListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    
-    let cellSpacingHeight: CGFloat = 50
-
-    
+//MARK: - Add folder
     @IBAction func addFolders(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
@@ -53,20 +50,32 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         self.present(alert, animated: true, completion: nil)
     
     }
-    
+
+//MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
+   
     @IBOutlet weak var tableView: UITableView!
     
-    private var pastas: [Dados] = mockData()
-
+    var category: Category?
+    var cards: [Card]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-      
+        cards = category?.card?.allObjects as? [Card]
+        navbarTitle.title = category?.name
+        self.tableView.reloadData()
+        
     }
-    
+
+    func fetchData() {
+        cards = category?.card?.allObjects as? [Card]
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+  
     func numberOfSections(in tableView: UITableView) -> Int {
         return pastas.count
     } //retorna o número de pastas cadastradas
@@ -83,29 +92,50 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-detail", for: indexPath) as! FoldersTableViewCell
          
-        let folders = pastas[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "title-fichamento", for: indexPath) as! FichamentosTableViewCell
         
-        cell.titleLabel.text = folders.folder
-        cell.detailLabel.text = folders.recordsNumber
+
+        let card = cards?[indexPath.row]
+        
+        cell.titleLabel.text = card?.title
 
         return cell
     } //Onde configuramos a célula mesmo
     
     
-    
-    //teste 1
+//MARK: - Swipe
+
     func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
-        
-        //Delete
+       
+        //MARK: - Deletar
+      
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
-            print("deletou")
+            
+            let cardSelected = self.cards![indexPath.row]
+            
+            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
+            
+            let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(alertCancel)
+            
+            let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
+
+                
+                removeCard(category: self.category!, card: cardSelected)
+             
+                self.fetchData()
+            }
+            
+            alert.addAction(alertSave)
+            self.present(alert, animated: true, completion: nil)
             completionHandler(true)
         }
         
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .red
         
-        //Edit
+        //MARK: - Editar
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("editou")
             
@@ -120,35 +150,23 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         
         return swipe
     }
+
+//MARK: - Segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func retornaValores() -> (senderCards: [Card], senderCategory: Category?) {
+            return (pastas?[indexPath.row].card?.allObjects as! [Card], pastas?[indexPath.row])
+        }
+        performSegue(withIdentifier: "segueCards", sender: retornaValores())
+    }
     
-    
-    
-    
-    //teste 2
-//    func tableView(_ tableView: UITableView,
-//                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//                 success(true)
-//             })
-//    editAction.backgroundColor = .blue
-//
-//             return UISwipeActionsConfiguration(actions: [editAction])
-//     }
-//
-//     func tableView(_ tableView: UITableView,
-//                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let deleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//             success(true)
-//         })
-//         deleteAction.backgroundColor = .red
-//
-//         return UISwipeActionsConfiguration(actions: [deleteAction])
-//     }
-//
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueCards", let indexPath = sender as? (senderCards: [Card], senderCategory: Category?){
+            let destination = segue.destination as? FichamentoListViewController
+            destination?.cards = indexPath.senderCards
+            destination?.category = indexPath.senderCategory
+            
+        }
+    }
 
 }
 

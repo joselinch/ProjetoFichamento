@@ -16,11 +16,13 @@ var items:[Category]?
 //MARK: CARD: São as fichas do fichamento bibliográfico
 
 //MARK: Adiciona ficha
-func addCard(category: Category, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String) {
+func addCard(category: Category, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String) -> Card {
     let card = Card(context: context)
     card.anotations = cardAnotation
     card.author = cardAuthor
+    card.title = cardTitle
     card.date = cardDate
+    card.status = cardStatus
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
     
@@ -28,43 +30,53 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
     
     do {
         try context.save()
+        return card
     } catch {
         print("Erro!")
     }
+    return card
 }
 
 //MARK: Remove ficha
-func removeCard(id: String, card: Card) {
+func removeCard(category: Category, card: Card) {
+    category.removeFromCard(card)
     context.delete(card)
+    
+    do {
+        try context.save()
+    } catch {
+        //
+    }
 }
 
 //MARK: Duplica ficha
-func duplicateCard(card: Card) -> Card {
+func duplicateCard(card: Card, category: Category) {
     let newCard = Card(context: context)
     newCard.anotations = card.anotations
     newCard.author = card.author
     newCard.date = card.date
+    newCard.title = card.title
+    newCard.status = card.status
     newCard.files = card.files
     newCard.isFavorite = card.isFavorite
     newCard.reference = card.reference
     
-    card.categories?.addToCard(newCard)
+    category.addToCard(newCard)
     
     do {
         try context.save()
-        return newCard
     } catch {
         print("Erro!")
     }
-    
-    return newCard
 }
 
 //MARK: Edita Ficha
-func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String){
+func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String){
     card.anotations = cardAnotation
     card.author = cardAuthor
     card.date = cardDate
+    card.title = cardTitle
+    card.status = cardStatus
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
     
@@ -92,7 +104,7 @@ func returnCategory() -> [Category]? {
 }
 
 //MARK: Adiciona categoria
-func addCategory(name: String) {
+func addCategory(name: String?) {
     let category = Category(context: context)
     category.name = name
     
@@ -104,13 +116,18 @@ func addCategory(name: String) {
 }
 
 //MARK: Remove categoria
-func deleteCategory(category:Category){
+func deleteCategory(category: Category){
     context.delete(category)
+    
+    do {
+        try context.save()
+    } catch {
+        print("Erro!")
+    }
 }
 
 //MARK: Salva categoria
-func editCategory(category: Category, categoryName: String, categoryEmoji: String){
-    category.emoji = categoryEmoji
+func editCategory(category: Category, categoryName: String){
     category.name = categoryName
     
     do {
