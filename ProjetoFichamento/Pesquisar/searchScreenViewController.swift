@@ -7,6 +7,21 @@
 
 import UIKit
 
-struct searchScreenViewController {
-    
-}
+//class searchScreenViewController: UIViewController, UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        //
+//    }
+//    
+//    override func viewDidLoad() {
+//        let search = UISearchController(searchResultsController: nil)
+//        search.searchResultsUpdater = self
+//        search.obscuresBackgroundDuringPresentation = false
+//        search.searchBar.placeholder = "Type something here to search"
+//        navigationItem.searchController = search
+//    }
+//}
+//
+//func updateSearchResults(for searchController: UISearchController) {
+//    guard let text = searchController.searchBar.text else { return }
+//    print(text)
+//}
