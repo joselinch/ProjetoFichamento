@@ -16,6 +16,11 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func addFolders(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
+//        alert.addTextField(){ (textField) in
+//            textField.placeholder = "Enter a icon"
+//            //textField.keyboardType = .numberPad
+//        }
+//
         alert.addTextField(){ (textField) in
             textField.placeholder = "Enter a name"
         }
@@ -23,13 +28,22 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(alertCancel)
-        
         let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
-              let textField = alert.textFields![0]
-            
-            let name = textField.text
-            addCategory(name: name)
-            self.fetchData()
+//            let textField = alert.textFields![0]
+//
+//            let newPerson = Person(context: self.context)
+//            newPerson.name = textField.text
+//            newPerson.age = 20
+//            newPerson.gender = "Female"
+//
+//            do {
+//                try self.context.save()
+//            }
+//            catch {
+//
+//            }
+//
+//            self.fetchData()
         }
         
         alert.addAction(alertSave)
@@ -41,50 +55,49 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
    
     @IBOutlet weak var tableView: UITableView!
     
-    private var pastas: [Category]?
-    let cellSpacingHeight: CGFloat = 50
+    var category: Category?
+    var cards: [Card]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        fetchData()
+        cards = category?.card?.allObjects as? [Card]
+        navbarTitle.title = category?.name
+        self.tableView.reloadData()
+        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        fetchData()
-    }
-    
-    func fetchData(){
-        pastas = returnCategory()
+
+    func fetchData() {
+        cards = category?.card?.allObjects as? [Card]
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-
-//MARK: - Funções tableView
-    
+  
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    } //retorna o número de sessões
+        return pastas.count
+    } //retorna o número de pastas cadastradas
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pastas?.count ?? 0
-    } //Quantidade de linhas em uma sessão (padrão 1 - define na func acima)
+        let pasta = pastas[section]
+        return pasta.folder.count
+    } //Quantidade de linhas em uma sessão -> padrão 1 - define na func acima
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-detail", for: indexPath) as! FoldersTableViewCell
          
-//        let folders = pastas?[indexPath.section]
-        let folders = pastas![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "title-fichamento", for: indexPath) as! FichamentosTableViewCell
         
-        cell.titleLabel.text = folders.name
-        let records = folders.card?.allObjects as? [Card]
-        cell.detailLabel.text = "\(records?.count ?? 0) Records"
+
+        let card = cards?[indexPath.row]
+        
+        cell.titleLabel.text = card?.title
 
         return cell
     } //Onde configuramos a célula mesmo
@@ -98,24 +111,24 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
       
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
             
-            let folderSelected = self.pastas![indexPath.row]
+            let cardSelected = self.cards![indexPath.row]
             
-            let alert = UIAlertController(title: "Delete \(folderSelected.name ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
             
             let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             alert.addAction(alertCancel)
             
             let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
-                  
-    
-                deleteCategory(category: folderSelected)
+
+                
+                removeCard(category: self.category!, card: cardSelected)
+             
                 self.fetchData()
             }
             
             alert.addAction(alertSave)
             self.present(alert, animated: true, completion: nil)
-            
             completionHandler(true)
         }
         
@@ -124,31 +137,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
         
         //MARK: - Editar
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            
-            let folderSelected = self.pastas![indexPath.row]
-            
-            let alert = UIAlertController(title: "Edit Folder", message: "Edit the name for this folder", preferredStyle: .alert)
-            
-            alert.addTextField(){ (textField) in
-                textField.placeholder = "Enter a name"
-                textField.text = folderSelected.name
-            }
-            
-            let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alert.addAction(alertCancel)
-            
-            let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
-                  let textField = alert.textFields![0]
-                
-                let name = textField.text
-                editCategory(category: folderSelected, categoryName: name ?? "")
-                self.fetchData()
-            }
-            
-            alert.addAction(alertSave)
-            self.present(alert, animated: true, completion: nil)
-            
+            print("editou")
             
             success(true)
         })

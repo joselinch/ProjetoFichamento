@@ -37,7 +37,7 @@
                                                                 <constraint firstAttribute="width" secondItem="agN-Ac-r6e" secondAttribute="height" id="ggy-99-qgc"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-Af-I6U">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-Af-I6U">
                                                             <rect key="frame" x="306" y="14" width="23" height="16.5"/>
                                                             <color key="tintColor" name="Color1Primary"/>
                                                             <constraints>
