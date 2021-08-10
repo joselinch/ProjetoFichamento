@@ -175,7 +175,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Cxx-IW-1iR">
-                                                <rect key="frame" x="286" y="436.5" width="108" height="31"/>
+                                                <rect key="frame" x="286" y="436.5" width="122" height="31"/>
                                             </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
