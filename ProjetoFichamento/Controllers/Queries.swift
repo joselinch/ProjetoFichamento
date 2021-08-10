@@ -50,7 +50,7 @@ func removeCard(category: Category, card: Card) {
 }
 
 //MARK: Duplica ficha
-func duplicateCard(card: Card) -> Card {
+func duplicateCard(card: Card, category: Category) {
     let newCard = Card(context: context)
     newCard.anotations = card.anotations
     newCard.author = card.author
@@ -61,16 +61,13 @@ func duplicateCard(card: Card) -> Card {
     newCard.isFavorite = card.isFavorite
     newCard.reference = card.reference
     
-    card.categories?.addToCard(newCard)
+    category.addToCard(newCard)
     
     do {
         try context.save()
-        return newCard
     } catch {
         print("Erro!")
     }
-    
-    return newCard
 }
 
 //MARK: Edita Ficha

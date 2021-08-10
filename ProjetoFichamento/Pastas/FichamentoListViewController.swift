@@ -107,10 +107,6 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
                 removeCard(category: self.category!, card: cardSelected)
              
                 self.fetchData()
-                //                DispatchQueue.main.async {
-                //
-                //                    self.tableView.reloadData()
-                //                }
             }
             
             alert.addAction(alertSave)
@@ -124,7 +120,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         //MARK: - Editar
         
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("editou")
+
             
             success(true)
         })
@@ -145,9 +141,9 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             
             let alertSave = UIAlertAction(title: "Duplicate", style: .default) { (action) in
                 
-                let newCard = duplicateCard(card: cardSelected)
-                self.cards?.append(newCard)
+                duplicateCard(card: cardSelected, category: self.category!)
                 self.fetchData()
+                
             }
             
             alert.addAction(alertSave)
