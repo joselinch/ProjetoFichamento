@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Item-->
         <scene sceneID="xoc-ba-Twv">
             <objects>
                 <viewController id="34L-06-FSB" customClass="SearchViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,9 @@
                         <viewLayoutGuide key="safeArea" id="JG4-Yk-0qT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="Iqi-gV-HuP"/>
                     <navigationItem key="navigationItem" id="ivY-06-pd6"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ue6-cp-ryO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

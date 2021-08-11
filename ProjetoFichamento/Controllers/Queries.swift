@@ -147,7 +147,7 @@ func removeFile(file: Files) {
 //--------------------------------------
 
 ////MARK: Pesquisar
-func filter(name: String) {
+func search(name: String) {
     let category = Category(context: context)
     category.name = name
 }
