@@ -80,7 +80,7 @@
                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="rKS-fz-rPw" kind="popoverPresentation" popoverAnchorView="QjQ-or-jEO" id="Pvm-ZS-u7f">
+                                                    <segue destination="rKS-fz-rPw" kind="popoverPresentation" identifier="modal-folder" popoverAnchorView="QjQ-or-jEO" id="Pvm-ZS-u7f">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                     </segue>
                                                 </connections>
@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="105.80357142857143"/>
         </scene>
-        <!--View Controller-->
+        <!--Folders Modal List View Controller-->
         <scene sceneID="a9L-zu-8ha">
             <objects>
-                <viewController id="sBu-NW-WVM" sceneMemberID="viewController">
+                <viewController id="sBu-NW-WVM" customClass="FoldersModalListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E3K-W2-rtD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,6 +199,9 @@
                                 <state key="normal" title="Create a new folder" image="plus" catalog="system">
                                     <color key="titleColor" name="Color1Primary"/>
                                 </state>
+                                <connections>
+                                    <action selector="createButton:" destination="sBu-NW-WVM" eventType="touchUpInside" id="Nao-rk-5HR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xIx-bX-baq"/>
@@ -214,10 +217,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4iw-Kv-CsW">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="kvz-rr-cjQ">
+                        <barButtonItem key="rightBarButtonItem" title="Save" systemItem="done" id="kvz-rr-cjQ">
                             <color key="tintColor" name="Color1Primary"/>
+                            <connections>
+                                <action selector="doneAction:" destination="sBu-NW-WVM" id="bJI-qr-jwt"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="u2v-h8-gR7" id="el6-Gd-Xx2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbT-Yf-OuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

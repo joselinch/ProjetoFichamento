@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2409D05C26B8894800EAD3B4 /* FichamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */; };
-		2409D05E26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */; };
 		2474F20B26B0745D00E90FE7 /* Fichamento.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */; };
 		2474F20D26B0747500E90FE7 /* Pastas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20C26B0747500E90FE7 /* Pastas.storyboard */; };
 		2474F20F26B0748300E90FE7 /* Pesquisar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2474F20E26B0748300E90FE7 /* Pesquisar.storyboard */; };
+		272AF95326C462F900FE5749 /* FoldersModalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272AF95226C462F900FE5749 /* FoldersModalListViewController.swift */; };
 		27CF60EC26B85DE3003D6BC7 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF60EB26B85DE3003D6BC7 /* Queries.swift */; };
 		27CF60EF26B86594003D6BC7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF60ED26B86594003D6BC7 /* Category+CoreDataClass.swift */; };
 		27CF60F026B86594003D6BC7 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF60EE26B86594003D6BC7 /* Category+CoreDataProperties.swift */; };
@@ -27,7 +27,6 @@
 		9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */; };
 		9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */; };
 		9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */; };
-		9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F95126C1E4BB00AC2118 /* DateViewController.swift */; };
 		B186834F26C44154001B18EC /* ProjetoFichamento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9F326A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld */; };
 		B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */; };
 		B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */; };
@@ -38,10 +37,10 @@
 
 /* Begin PBXFileReference section */
 		2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentoViewController.swift; sourceTree = "<group>"; };
-		2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewCell.swift; sourceTree = "<group>"; };
 		2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fichamento.storyboard; sourceTree = "<group>"; };
 		2474F20C26B0747500E90FE7 /* Pastas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pastas.storyboard; sourceTree = "<group>"; };
 		2474F20E26B0748300E90FE7 /* Pesquisar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pesquisar.storyboard; sourceTree = "<group>"; };
+		272AF95226C462F900FE5749 /* FoldersModalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersModalListViewController.swift; sourceTree = "<group>"; };
 		27CF60EB26B85DE3003D6BC7 /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		27CF60ED26B86594003D6BC7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		27CF60EE26B86594003D6BC7 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9F63F95126C1E4BB00AC2118 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentosTableViewCell.swift; sourceTree = "<group>"; };
 		B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentoListViewController.swift; sourceTree = "<group>"; };
 		B1EFFCC526B1F42400874612 /* dataFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataFolders.swift; sourceTree = "<group>"; };
@@ -84,8 +82,7 @@
 			children = (
 				2474F20A26B0745D00E90FE7 /* Fichamento.storyboard */,
 				2409D05B26B8894800EAD3B4 /* FichamentoViewController.swift */,
-				2409D05D26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift */,
-				9F63F95126C1E4BB00AC2118 /* DateViewController.swift */,
+				272AF95226C462F900FE5749 /* FoldersModalListViewController.swift */,
 			);
 			path = Fichamento;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B186834F26C44154001B18EC /* ProjetoFichamento.xcdatamodeld in Sources */,
-				9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */,
 				9F2CF93526B9E76D000E236D /* Card+CoreDataClass.swift in Sources */,
 				9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */,
 				9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */,
@@ -270,7 +266,7 @@
 				9F2CF93426B9E76D000E236D /* Files+CoreDataProperties.swift in Sources */,
 				B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */,
 				B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */,
-				2409D05E26BB01FC00EAD3B4 /* AttachmentTableViewCell.swift in Sources */,
+				272AF95326C462F900FE5749 /* FoldersModalListViewController.swift in Sources */,
 				B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
