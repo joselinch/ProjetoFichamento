@@ -12,69 +12,70 @@ import UIKit
 
 class FoldersListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    
-    let cellSpacingHeight: CGFloat = 50
-
-    
+//MARK: - Add folder
     @IBAction func addFolders(_ sender: Any) {
-        let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
+            let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
+            
+            alert.addTextField(){ (textField) in
+                textField.placeholder = "Enter a name"
+            }
+            
+            let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(alertCancel)
+            
+            let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
+                  let textField = alert.textFields![0]
+                
+                let name = textField.text
+                addCategory(name: name ?? "")
+                self.fetchData()
+            }
+            
+            alert.addAction(alertSave)
+            self.present(alert, animated: true, completion: nil)
         
-//        alert.addTextField(){ (textField) in
-//            textField.placeholder = "Enter a icon"
-//            //textField.keyboardType = .numberPad
-//        }
-//
-        alert.addTextField(){ (textField) in
-            textField.placeholder = "Enter a name"
         }
-        
-        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(alertCancel)
-        let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
-//            let textField = alert.textFields![0]
-//
-//            let newPerson = Person(context: self.context)
-//            newPerson.name = textField.text
-//            newPerson.age = 20
-//            newPerson.gender = "Female"
-//
-//            do {
-//                try self.context.save()
-//            }
-//            catch {
-//
-//            }
-//
-//            self.fetchData()
-        }
-        
-        alert.addAction(alertSave)
-        self.present(alert, animated: true, completion: nil)
-    
-    }
-    
+
+//MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
+   
     @IBOutlet weak var tableView: UITableView!
     
-    private var pastas: [Dados] = mockData()
 
+    private var pastas: [Category]?
+    let cellSpacingHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-      
+
+        fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
+    func fetchData(){
+        pastas = returnCategory()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+//MARK: - Funções tableView
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pastas.count
+        return 1
+        
     } //retorna o número de pastas cadastradas
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let pasta = pastas[section]
-        return pasta.folder.count
+        
+        return pastas?.count ?? 0
     } //Quantidade de linhas em uma sessão -> padrão 1 - define na func acima
     
     
@@ -83,72 +84,105 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-detail", for: indexPath) as! FoldersTableViewCell
          
-        let folders = pastas[indexPath.section]
+
+//        let folders = pastas?[indexPath.section]
+        let folders = pastas![indexPath.row]
         
-        cell.titleLabel.text = folders.folder
-        cell.detailLabel.text = folders.recordsNumber
+        cell.titleLabel.text = folders.name
+        let records = folders.card?.allObjects as? [Card]
+        cell.detailLabel.text = "\(records?.count ?? 0) Records"
+
 
         return cell
     } //Onde configuramos a célula mesmo
     
     
-    
-    //teste 1
+//MARK: - Swipe
     func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+           
+            //MARK: - Deletar
+          
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
+                
+                let folderSelected = self.pastas![indexPath.row]
+                
+                let alert = UIAlertController(title: "Delete \(folderSelected.name ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
+                
+                let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                alert.addAction(alertCancel)
+                
+                let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
+                      
         
-        //Delete
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
-            print("deletou")
-            completionHandler(true)
-        }
-        
-        deleteAction.image = UIImage(systemName: "trash")
-        deleteAction.backgroundColor = .red
-        
-        //Edit
-        let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("editou")
+                    deleteCategory(category: folderSelected)
+                    self.fetchData()
+                }
+                
+                alert.addAction(alertSave)
+                self.present(alert, animated: true, completion: nil)
+                
+                completionHandler(true)
+            }
             
-            success(true)
-        })
-        
-        editAction.backgroundColor = UIColor(named: "Color3Secondary")
-        editAction.image = UIImage(systemName: "pencil")
-        
-        //swipe actions
-        let swipe = UISwipeActionsConfiguration(actions:[ deleteAction, editAction])
-        
-        return swipe
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = .red
+            
+            //MARK: - Editar
+            let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                
+                let folderSelected = self.pastas![indexPath.row]
+                
+                let alert = UIAlertController(title: "Edit Folder", message: "Edit the name for this folder", preferredStyle: .alert)
+                
+                alert.addTextField(){ (textField) in
+                    textField.placeholder = "Enter a name"
+                    textField.text = folderSelected.name
+                }
+                
+                let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                alert.addAction(alertCancel)
+                
+                let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
+                      let textField = alert.textFields![0]
+                    
+                    let name = textField.text
+                    editCategory(category: folderSelected, categoryName: name ?? "")
+                    self.fetchData()
+                }
+                
+                alert.addAction(alertSave)
+                self.present(alert, animated: true, completion: nil)
+                
+                
+                success(true)
+            })
+            
+            editAction.backgroundColor = UIColor(named: "Color3Secondary")
+            editAction.image = UIImage(systemName: "pencil")
+            
+            //swipe actions
+            let swipe = UISwipeActionsConfiguration(actions:[ deleteAction, editAction])
+            
+            return swipe
+        }
+//MARK: - Segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func retornaValores() -> (senderCards: [Card], senderCategory: Category?) {
+            return (pastas?[indexPath.row].card?.allObjects as! [Card], pastas?[indexPath.row])
+        }
+        performSegue(withIdentifier: "segueCards", sender: retornaValores())
     }
     
-    
-    
-    
-    //teste 2
-//    func tableView(_ tableView: UITableView,
-//                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//                 success(true)
-//             })
-//    editAction.backgroundColor = .blue
-//
-//             return UISwipeActionsConfiguration(actions: [editAction])
-//     }
-//
-//     func tableView(_ tableView: UITableView,
-//                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//     {
-//         let deleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//             success(true)
-//         })
-//         deleteAction.backgroundColor = .red
-//
-//         return UISwipeActionsConfiguration(actions: [deleteAction])
-//     }
-//
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueCards", let indexPath = sender as? (senderCards: [Card], senderCategory: Category?){
+            let destination = segue.destination as? FichamentoListViewController
+            destination?.cards = indexPath.senderCards
+            destination?.category = indexPath.senderCategory
+            
+        }
+    }
 
 }
 

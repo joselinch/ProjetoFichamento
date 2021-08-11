@@ -28,6 +28,7 @@
 		9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */; };
 		9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */; };
 		9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F95126C1E4BB00AC2118 /* DateViewController.swift */; };
+		B186834F26C44154001B18EC /* ProjetoFichamento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9F326A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld */; };
 		B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */; };
 		B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */; };
 		B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC526B1F42400874612 /* dataFolders.swift */; };
@@ -250,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B186834F26C44154001B18EC /* ProjetoFichamento.xcdatamodeld in Sources */,
 				9F63F95226C1E4BB00AC2118 /* DateViewController.swift in Sources */,
 				9F2CF93526B9E76D000E236D /* Card+CoreDataClass.swift in Sources */,
 				9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */,
