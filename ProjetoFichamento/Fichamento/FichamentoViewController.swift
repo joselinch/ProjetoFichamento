@@ -14,7 +14,9 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     var selectedAttachment = ""
     var readingStatus = ""
     @IBOutlet var textFieldTitle: UITextField!
+    @IBOutlet weak var statusButtonWidth: NSLayoutConstraint!
     @IBOutlet var searchBarFolder: UISearchBar!
+    @IBOutlet weak var  datePicker: UIDatePicker!
     @IBOutlet var userNotes: UITextView!
     @IBOutlet var tableViewAttachments: UITableView!
     @IBOutlet var textFieldAuthor: UITextField!
@@ -80,20 +82,24 @@ class FichamentoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewDidLoad() {
-        tableViewAttachments.dataSource = self
-        tableViewAttachments.delegate = self
+       // tableViewAttachments.dataSource = self
+      //  tableViewAttachments.delegate = self
         presentStatusButtonOutlet.layer.cornerRadius = 6.0
         presentStatusButtonOutlet.layer.borderWidth = 1
         presentStatusButtonOutlet.layer.cornerRadius = 6
         presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
-        dateButtonOutlet.layer.cornerRadius = 6.0
-        dateButtonOutlet.layer.borderWidth = 1
-        dateButtonOutlet.layer.cornerRadius = 6
-        dateButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
-        attachmentButtonOutlet.layer.cornerRadius = 6.0
-        attachmentButtonOutlet.layer.borderWidth = 1
-        attachmentButtonOutlet.layer.cornerRadius = 6
-        attachmentButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+    //    dateButtonOutlet.layer.cornerRadius = 6.0
+    //    dateButtonOutlet.layer.borderWidth = 1
+    //    dateButtonOutlet.layer.cornerRadius = 6
+    //    dateButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+    //    attachmentButtonOutlet.layer.cornerRadius = 6.0
+    //    attachmentButtonOutlet.layer.borderWidth = 1
+     //   attachmentButtonOutlet.layer.cornerRadius = 6
+    //    attachmentButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        statusButtonWidth.constant = view.frame.width - 60 - datePicker.frame.width
     }
     
     //MARK: Attachments TableView
