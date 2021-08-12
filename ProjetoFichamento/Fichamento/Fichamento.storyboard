@@ -135,7 +135,7 @@
                     <navigationItem key="navigationItem" title="New Record" id="qqQ-3c-GE6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="liJ-Qv-JyF">
                             <connections>
-                                <action selector="cancelButton:" destination="Y6W-OH-hqX" id="nHa-P6-OwJ"/>
+                                <action selector="cancelButton:" destination="Y6W-OH-hqX" id="sdr-Go-Gid"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="DD0-j9-nYu">
@@ -149,6 +149,7 @@
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="datePicker" destination="Cxx-IW-1iR" id="3uN-fF-2BH"/>
+                        <outlet property="folderButtonOutlet" destination="QjQ-or-jEO" id="BPN-cZ-o97"/>
                         <outlet property="presentStatusButtonOutlet" destination="hpg-zU-oJK" id="GDx-Ce-5Rf"/>
                         <outlet property="statusButtonWidth" destination="Q6L-ax-vKs" id="odM-Fg-WGP"/>
                         <outlet property="textFieldAuthor" destination="2wu-Xd-eWE" id="pDP-vD-Bgw"/>

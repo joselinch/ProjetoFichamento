@@ -85,7 +85,6 @@ class FoldersModalListViewController: UIViewController, UITableViewDataSource, U
         if let pasta = pastas?[indexPath.row] {
             delegate?.didSelectedCategory(category: pasta)
         }
-        
         navigationController?.dismiss(animated: true, completion: nil)
     }
 

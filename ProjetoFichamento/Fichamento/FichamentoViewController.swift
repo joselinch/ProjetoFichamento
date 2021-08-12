@@ -11,6 +11,7 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
     
     func didSelectedCategory(category: Category) {
         self.selectedCategory = category
+        folderButtonOutlet.setTitle(category.name, for: .normal)
     }
     
     
@@ -21,6 +22,7 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
     @IBOutlet weak var  datePicker: UIDatePicker!
     @IBOutlet var userNotes: UITextView!
     @IBOutlet var textFieldAuthor: UITextField!
+    @IBOutlet weak var folderButtonOutlet: UIButton!
     @IBOutlet var textFieldReference: UITextField!
     var selectedCategory: Category?
     
@@ -43,28 +45,63 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
         self.present(statusSheet, animated: true, completion: nil)
     }
     
-    
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         let sucessAlert = UIAlertController(title: "Success", message: "Record saved!", preferredStyle: .alert)
+        let errAlert = UIAlertController(title: "Error", message: "Record not saved!", preferredStyle: .alert)
 //        let alertOkButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
 //        sucessAlert.addAction(alertOkButton)
-        print(selectedCategory?.name ?? "")
-        self.present(sucessAlert, animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
+        if let folder = selectedCategory {
+            if textFieldTitle.text != "" {
+                let _ = addCard(category: folder, cardAnotation: userNotes.text, cardAuthor: textFieldAuthor.text ?? "", cardDate: datePicker.date, cardIsFavorite: false, cardReference: textFieldReference.text ?? "", cardStatus: readingStatus, cardTitle: textFieldTitle.text ?? "")
+                cleanPage()
+                self.present(sucessAlert, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                self.present(errAlert, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            self.present(errAlert, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
         //performSegue(withIdentifier: "", sender: nil)
     }
     
+    func cleanPage() {
+        textFieldReference.text = ""
+        textFieldAuthor.text = ""
+        textFieldTitle.text = ""
+        readingStatus = ""
+        userNotes.text = ""
+        presentStatusButtonOutlet.setTitle("Status", for: .normal)
+        datePicker.date = Date()
+        selectedCategory = nil
+        folderButtonOutlet.setTitle("Folder", for: .normal)
+    }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        cleanPage()
+        //self.dismiss(animated: true, completion: nil)
         //performSegue(withIdentifier: "", sender: nil)
     }
     
     override func viewDidLoad() {
+        if let folder = selectedCategory {
+            folderButtonOutlet.setTitle(folder.name, for: .normal)
+        }
         presentStatusButtonOutlet.layer.cornerRadius = 6.0
         presentStatusButtonOutlet.layer.borderWidth = 1
         presentStatusButtonOutlet.layer.cornerRadius = 6
         presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        print("CARREGOU WILLAPPEAR")
+//        if let folder = selectedCategory {
+//            folderButtonOutlet.setTitle(folder.name, for: .normal)
+//        }
+//    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         statusButtonWidth.constant = view.frame.width - 60 - datePicker.frame.width
