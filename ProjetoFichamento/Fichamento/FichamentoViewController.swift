@@ -7,7 +7,8 @@
 
 import UIKit
 
-class FichamentoViewController: UIViewController, FoldersModalListViewControllerDelegate {
+
+class FichamentoViewController: UIViewController, FoldersModalListViewControllerDelegate, UITextViewDelegate {
     
     func didSelectedCategory(category: Category) {
         self.selectedCategory = category
@@ -90,11 +91,28 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
             folderButtonOutlet.setTitle(folder.name, for: .normal)
         }
         presentStatusButtonOutlet.layer.cornerRadius = 6.0
-        presentStatusButtonOutlet.layer.borderWidth = 1
+        //presentStatusButtonOutlet.layer.borderWidth = 1
         presentStatusButtonOutlet.layer.cornerRadius = 6
-        presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+        //presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
+        
+        userNotes.delegate = self
+        userNotes.text = "Write here your notes"
+        userNotes.textColor = UIColor.lightGray
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if userNotes.textColor == UIColor.lightGray {
+            userNotes.text = ""
+            userNotes.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if userNotes.text.isEmpty {
+            userNotes.text = "Write here your notes"
+            userNotes.textColor = UIColor.lightGray
+        }
+    }
 //    override func viewWillAppear(_ animated: Bool) {
 //        print("CARREGOU WILLAPPEAR")
 //        if let folder = selectedCategory {
