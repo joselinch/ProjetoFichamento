@@ -25,6 +25,6 @@ func mockData() -> [Dados]{
         Dados(
             folder: "Artigo ef",
             recordsNumber: "0 Record"
-        )
+        ),
     ]
 }

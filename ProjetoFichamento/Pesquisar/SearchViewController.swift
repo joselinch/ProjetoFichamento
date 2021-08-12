@@ -16,7 +16,7 @@ enum SearchCategory: CaseIterable {
         case .latestResearch:
             return "Latest Research"
         case .currentSearch:
-            return "Current Search"
+            return ""
         }
     }
 }
@@ -25,7 +25,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     
     var searchController: UISearchController!
     let searchSections = SearchCategory.allCases
-    var latestResearch: [String] = []
     var folders: [Dados] = mockData()
     var filteredFolders: [Dados] = []
     var latestsResearches: [Dados] = []
@@ -47,7 +46,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
-        //let resultsViewController = ResultsViewController()
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -66,14 +64,28 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         }
         
         let formattedTypedText = typedText.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+        filteredFolders.removeAll()
+        DispatchQueue.main.async {
+            self.latestSearchTableView.reloadData()
+        }
         
-        let filterFoldersText = folders.filter({ folder in
-            let formattedFolderName = folder.folder.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-            return formattedFolderName.contains(formattedTypedText)
-        })
-
+        for folder in folders {
+            if folder.folder.lowercased() == formattedTypedText {
+                filteredFolders.append(folder)
+                DispatchQueue.main.async {
+                    self.latestSearchTableView.reloadData()
+                }
+            }
+        }
+        
+//        let filterFolders = folders.filter({ folder in
+//            let formattedFolderName = folder.folder.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+//            print(formattedFolderName)
+//            return formattedFolderName.contains(formattedTypedText)
+//        })
+        
         if let resultsController = searchController.searchResultsController as? SearchViewController {
-            resultsController.filteredFolders = filterFoldersText
+            //resultsController.filteredFolders = filterFolders
             resultsController.latestSearchTableView.reloadData()
         }
     }
@@ -104,7 +116,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         case .currentSearch:
             cell.textLabel?.text = filteredFolders[indexPath.row].folder
         case .latestResearch:
-            cell.textLabel?.text = latestResearch[indexPath.row]
+            cell.textLabel?.text = latestsResearches[indexPath.row].folder
         }
         return cell
     }
@@ -118,8 +130,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             // TODO: Passar pra tela de detalhes
             latestSearchTableView.reloadData()
         case .latestResearch:
-            let selectedFolder = latestsResearches[indexPath.row]
-            // TODO: Passar pra tela de detalhes
+            print("ok")
+        //let selectedFolder = latestsResearches[indexPath.row]
+        // TODO: Passar pra tela de detalhes
         }
     }
 }
