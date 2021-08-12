@@ -7,10 +7,29 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+enum SearchCategory: CaseIterable {
+    case currentSearch
+    case latestResearch
+    
+    var description: String {
+        switch self {
+        case .latestResearch:
+            return "Latest Research"
+        case .currentSearch:
+            return "Current Search"
+        }
+    }
+}
+
+class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    var searchController: UISearchController!
+    let searchSections = SearchCategory.allCases
+    var latestResearch: [String] = []
+    var folders: [Dados] = mockData()
+    var filteredFolders: [Dados] = []
+    var latestsResearches: [Dados] = []
     let latestSearchTableView = UITableView()
-    let filterCategory = [Category]()
-    var latestSearch: [String] = []
     
     func setuplatestSearchTableView() {
         view.addSubview(latestSearchTableView)
@@ -22,55 +41,85 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         latestSearchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         latestSearchTableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         latestSearchTableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        latestSearchTableView.dataSource = self
+        latestSearchTableView.estimatedRowHeight = 45.0
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return latestSearch.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
-        cell.textLabel?.text = latestSearch[indexPath.row]
-        return cell
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setuplatestSearchTableView()
-    }
-}
-
-class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
-    let searchController = UISearchController(searchResultsController: ResultsViewController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
+        //let resultsViewController = ResultsViewController()
+        searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         searchController.searchBar.placeholder = "Enter the folder name"
         searchController.searchBar.showsSearchResultsButton = true
+        latestSearchTableView.delegate = self
+        latestSearchTableView.dataSource = self
+        setuplatestSearchTableView()
     }
     
-    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-    
-    }
-    
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-
     func updateSearchResults(for searchController: UISearchController) {
         guard let typedText = searchController.searchBar.text
         else {
             return
         }
-        let viewResults = searchController.searchResultsController as? ResultsViewController
         
-        viewResults?.latestSearch.append(typedText)
-        print(viewResults?.latestSearch ?? typedText)
-        print(typedText)
+        let formattedTypedText = typedText.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+        
+        let filterFoldersText = folders.filter({ folder in
+            let formattedFolderName = folder.folder.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+            return formattedFolderName.contains(formattedTypedText)
+        })
+
+        if let resultsController = searchController.searchResultsController as? SearchViewController {
+            resultsController.filteredFolders = filterFoldersText
+            resultsController.latestSearchTableView.reloadData()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return searchSections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let currentSection = searchSections[section]
+        return currentSection.description
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let currentSection = searchSections[section]
+        switch currentSection {
+        case .currentSearch:
+            return filteredFolders.count
+        case .latestResearch:
+            return latestsResearches.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentSection = searchSections[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
+        switch currentSection {
+        case .currentSearch:
+            cell.textLabel?.text = filteredFolders[indexPath.row].folder
+        case .latestResearch:
+            cell.textLabel?.text = latestResearch[indexPath.row]
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentSection = searchSections[indexPath.section]
+        switch currentSection {
+        case .currentSearch:
+            let selectedFolder = filteredFolders[indexPath.row]
+            latestsResearches.insert(selectedFolder, at: 0)
+            // TODO: Passar pra tela de detalhes
+            latestSearchTableView.reloadData()
+        case .latestResearch:
+            let selectedFolder = latestsResearches[indexPath.row]
+            // TODO: Passar pra tela de detalhes
+        }
     }
 }

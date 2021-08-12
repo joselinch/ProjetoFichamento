@@ -143,11 +143,3 @@ func addFile(card: Card, fileURL: URL, fileName: String) {
 func removeFile(file: Files) {
     context.delete(file)
 }
-
-//--------------------------------------
-
-////MARK: Pesquisar
-func search(name: String) {
-    let category = Category(context: context)
-    category.name = name
-}
