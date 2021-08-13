@@ -32,7 +32,7 @@ extension OnboardingViewController {
         let page1 = viewController1()
         let page2 = viewController2()
         let page3 = viewController3()
-
+        
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
@@ -70,16 +70,16 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         if currentIndex == 0 {
             return pages.last
         } else {
-            return pages[currentIndex -1]
+            return pages[currentIndex - 1]
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = pages.firstIndex(of: viewController) else {
+        guard let currentIndex = pages.firstIndex(of: viewController as! UIPageViewController) else {
             return nil }
         
-        if currentIndex < pages.count -1 {
+        if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]
         } else {
             return pages.first
@@ -88,12 +88,26 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 }
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let viewControllers = pageViewController.viewControllers else { return }
         
-        guard currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
+        guard let currentIndex = pages.firstIndex(of: viewControllers[0] as! UIPageViewController) else { return }
         
         pageControl.currentPage = currentIndex
     }
 }
 
+class viewController1: UIPageViewController {
+
+}
+
+class viewController2: UIPageViewController {
+    
+}
+
+class viewController3: UIPageViewController {
+    
+}
+
+//ColettionView
