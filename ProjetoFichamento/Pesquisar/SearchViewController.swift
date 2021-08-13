@@ -130,8 +130,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             // TODO: Passar pra tela de detalhes
             latestSearchTableView.reloadData()
         case .latestResearch:
-            print("ok")
-        //let selectedFolder = latestsResearches[indexPath.row]
+            let selectedFolder = latestsResearches[indexPath.row]
         // TODO: Passar pra tela de detalhes
         }
     }
