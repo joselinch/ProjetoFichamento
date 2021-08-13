@@ -25,7 +25,7 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
     card.date = cardDate
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
-    
+    card.status = cardStatus
     category.addToCard(card)
     
     do {
