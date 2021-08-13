@@ -21,8 +21,9 @@
 		27D1F9F226A9CEDB001987CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F026A9CEDB001987CB /* Main.storyboard */; };
 		27D1F9F726A9CEDE001987CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F626A9CEDE001987CB /* Assets.xcassets */; };
 		27D1F9FA26A9CEDE001987CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D1F9F826A9CEDE001987CB /* LaunchScreen.storyboard */; };
-		9F0E693F26C6DECF00C33479 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E693E26C6DECF00C33479 /* OnboardingViewController.swift */; };
-		9F0E694126C6EAB500C33479 /* OnboardingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E694026C6EAB500C33479 /* OnboardingStoryboard.storyboard */; };
+		9F0E696D26C71E0B00C33479 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E696C26C71E0B00C33479 /* DemoViewController.swift */; };
+		9F0E696F26C71FAF00C33479 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E696E26C71FAF00C33479 /* OnboardingViewController.swift */; };
+		9F0E697126C7275300C33479 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E697026C7275300C33479 /* Page2.swift */; };
 		9F2CF93326B9E76D000E236D /* Files+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF92D26B9E76D000E236D /* Files+CoreDataClass.swift */; };
 		9F2CF93426B9E76D000E236D /* Files+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF92E26B9E76D000E236D /* Files+CoreDataProperties.swift */; };
 		9F2CF93526B9E76D000E236D /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF92F26B9E76D000E236D /* Card+CoreDataClass.swift */; };
@@ -55,8 +56,9 @@
 		27D1F9F626A9CEDE001987CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D1F9F926A9CEDE001987CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27D1F9FB26A9CEDE001987CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F0E693E26C6DECF00C33479 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		9F0E694026C6EAB500C33479 /* OnboardingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingStoryboard.storyboard; sourceTree = "<group>"; };
+		9F0E696C26C71E0B00C33479 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		9F0E696E26C71FAF00C33479 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		9F0E697026C7275300C33479 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		9F2CF92D26B9E76D000E236D /* Files+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9F2CF92E26B9E76D000E236D /* Files+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Files+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F2CF92F26B9E76D000E236D /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -183,8 +185,9 @@
 		9F0E693D26C6DDE600C33479 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				9F0E693E26C6DECF00C33479 /* OnboardingViewController.swift */,
-				9F0E694026C6EAB500C33479 /* OnboardingStoryboard.storyboard */,
+				9F0E696C26C71E0B00C33479 /* DemoViewController.swift */,
+				9F0E696E26C71FAF00C33479 /* OnboardingViewController.swift */,
+				9F0E697026C7275300C33479 /* Page2.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -248,7 +251,6 @@
 			files = (
 				27D1F9FA26A9CEDE001987CB /* LaunchScreen.storyboard in Resources */,
 				2474F20D26B0747500E90FE7 /* Pastas.storyboard in Resources */,
-				9F0E694126C6EAB500C33479 /* OnboardingStoryboard.storyboard in Resources */,
 				27D1F9F726A9CEDE001987CB /* Assets.xcassets in Resources */,
 				27D1F9F226A9CEDB001987CB /* Main.storyboard in Resources */,
 				2474F20B26B0745D00E90FE7 /* Fichamento.storyboard in Resources */,
@@ -267,8 +269,10 @@
 				9F2CF93526B9E76D000E236D /* Card+CoreDataClass.swift in Sources */,
 				9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */,
 				9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */,
-				9F0E693F26C6DECF00C33479 /* OnboardingViewController.swift in Sources */,
+				9F0E697126C7275300C33479 /* Page2.swift in Sources */,
+				9F0E696F26C71FAF00C33479 /* OnboardingViewController.swift in Sources */,
 				27CF60EC26B85DE3003D6BC7 /* Queries.swift in Sources */,
+				9F0E696D26C71E0B00C33479 /* DemoViewController.swift in Sources */,
 				27CF60EF26B86594003D6BC7 /* Category+CoreDataClass.swift in Sources */,
 				27CF60F026B86594003D6BC7 /* Category+CoreDataProperties.swift in Sources */,
 				27D1F9EF26A9CEDB001987CB /* ViewController.swift in Sources */,
