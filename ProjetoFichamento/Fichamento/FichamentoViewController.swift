@@ -90,10 +90,8 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
         if let folder = selectedCategory {
             folderButtonOutlet.setTitle(folder.name, for: .normal)
         }
-        //presentStatusButtonOutlet.layer.cornerRadius = 6.0
-        //presentStatusButtonOutlet.layer.borderWidth = 1
+    
         presentStatusButtonOutlet.layer.cornerRadius = 6
-        //presentStatusButtonOutlet.layer.borderColor = UIColor(red: 0.929, green: 0.439, blue: 0.341, alpha: 1).cgColor
         
         userNotes.delegate = self
         userNotes.text = "Write here your notes"

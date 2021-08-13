@@ -203,7 +203,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="rx0-Rc-f55" id="AXN-4e-8zT"/>
-                                            <segue destination="pK4-Z4-70p" kind="show" id="bIW-E7-JwY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -228,16 +227,17 @@
                     <connections>
                         <outlet property="navbarTitle" destination="8n4-xR-H8U" id="4io-1n-R7b"/>
                         <outlet property="tableView" destination="lLL-wW-zoY" id="vD3-8b-k7m"/>
+                        <segue destination="pK4-Z4-70p" kind="show" identifier="detailSegue" id="362-Vj-ktK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09H-X1-WZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="103.89805097451276"/>
+            <point key="canvasLocation" x="1916" y="106"/>
         </scene>
-        <!--Fichamento-->
+        <!--Detalhe-->
         <scene sceneID="14S-u3-8aD">
             <objects>
-                <viewController id="pK4-Z4-70p" customClass="DetalhesViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detalhe" id="pK4-Z4-70p" customClass="DetalhesViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="je6-F6-G8x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +254,7 @@
                                                 <color key="textColor" name="GreenPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuS-pV-i5f">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuS-pV-i5f">
                                                 <rect key="frame" x="20" y="40.5" width="374" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" name="Color1Primary"/>
@@ -266,7 +266,7 @@
                                                 <color key="textColor" name="GreenPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-y4-mB2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-y4-mB2">
                                                 <rect key="frame" x="20" y="103.5" width="374" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" name="Color1Primary"/>
@@ -286,7 +286,7 @@
                                                 <color key="textColor" name="GreenPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlA-em-ack">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlA-em-ack">
                                                 <rect key="frame" x="20" y="457" width="374" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" name="Color1Primary"/>
@@ -298,7 +298,7 @@
                                                 <color key="textColor" name="GreenPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwX-f2-qY2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwX-f2-qY2">
                                                 <rect key="frame" x="20" y="520.5" width="374" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" name="Color1Primary"/>
@@ -401,7 +401,7 @@
                             <constraint firstItem="AkQ-WQ-9Dt" firstAttribute="leading" secondItem="j7A-5n-5Xs" secondAttribute="leading" id="jOS-ha-Xdb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fichamento" id="YBt-f9-IQl">
+                    <navigationItem key="navigationItem" title="Detalhe" id="YBt-f9-IQl">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IQ7-Y1-hmm">
                             <color key="tintColor" name="Color1Primary"/>
                             <connections>
@@ -413,6 +413,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="xlA-em-ack" id="UAG-Xf-bhh"/>
                         <outlet property="button" destination="Yem-ek-beu" id="mAD-Wv-9vh"/>
+                        <outlet property="contentViewHeight" destination="TiP-q9-pVu" id="G81-PU-Mjt"/>
                         <outlet property="dateLabel" destination="vm7-gu-zD7" id="8Il-eI-p0Y"/>
                         <outlet property="folderLabel" destination="UMM-y4-mB2" id="f8G-6e-J6r"/>
                         <outlet property="referenceLabel" destination="iwX-f2-qY2" id="FtE-Uj-sH2"/>
