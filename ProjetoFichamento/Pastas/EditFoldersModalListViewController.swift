@@ -1,20 +1,19 @@
 //
-//  FoldersModalListViewController.swift
+//  EditFoldersModalListViewController.swift
 //  ProjetoFichamento
 //
-//  Created by José Antônio Linch Burmann on 11/08/21.
+//  Created by Eduarda Soares Serpa Camboim on 13/08/21.
 //
 
 import UIKit
 
-protocol FoldersModalListViewControllerDelegate: AnyObject {
+protocol EditFoldersModalListViewControllerDelegate: AnyObject {
     func didSelectedCategory(category: Category)
 }
 
-class FoldersModalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class EditFoldersModalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    weak var delegate: FoldersModalListViewControllerDelegate?
+    weak var delegate: EditFoldersModalListViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newFolderButton: UIButton!
@@ -90,6 +89,5 @@ class FoldersModalListViewController: UIViewController, UITableViewDataSource, U
         navigationController?.dismiss(animated: true, completion: nil)
     }
 
-    
     
 }

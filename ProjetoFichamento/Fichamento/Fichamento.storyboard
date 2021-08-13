@@ -217,18 +217,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u2v-h8-gR7">
-                                <rect key="frame" x="0.0" y="118" width="414" height="690"/>
+                                <rect key="frame" x="20" y="140" width="374" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="list-folder" textLabel="GN1-ed-oaa" style="IBUITableViewCellStyleDefault" id="q2l-Vh-xU6">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q2l-Vh-xU6" id="MXe-Nd-xLs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GN1-ed-oaa">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -240,8 +240,11 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upq-2P-sIJ">
-                                <rect key="frame" x="20" y="76" width="374" height="22"/>
+                                <rect key="frame" x="20" y="76" width="374" height="44"/>
                                 <color key="backgroundColor" name="Color1Tertiary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AMT-Jk-62G"/>
+                                </constraints>
                                 <color key="tintColor" name="Color1Primary"/>
                                 <state key="normal" title="Create a new folder" image="plus" catalog="system">
                                     <color key="titleColor" name="Color1Primary"/>
@@ -256,10 +259,10 @@
                         <constraints>
                             <constraint firstItem="u2v-h8-gR7" firstAttribute="top" secondItem="Upq-2P-sIJ" secondAttribute="bottom" constant="20" id="43H-9i-3cs"/>
                             <constraint firstItem="Upq-2P-sIJ" firstAttribute="leading" secondItem="xIx-bX-baq" secondAttribute="leading" constant="20" id="585-AX-RoJ"/>
-                            <constraint firstItem="u2v-h8-gR7" firstAttribute="leading" secondItem="xIx-bX-baq" secondAttribute="leading" id="NHe-bj-eCk"/>
+                            <constraint firstItem="u2v-h8-gR7" firstAttribute="leading" secondItem="xIx-bX-baq" secondAttribute="leading" constant="20" id="NHe-bj-eCk"/>
                             <constraint firstItem="Upq-2P-sIJ" firstAttribute="top" secondItem="xIx-bX-baq" secondAttribute="top" constant="20" id="dWo-NV-06b"/>
                             <constraint firstItem="xIx-bX-baq" firstAttribute="bottom" secondItem="u2v-h8-gR7" secondAttribute="bottom" id="hYc-pD-zFl"/>
-                            <constraint firstItem="xIx-bX-baq" firstAttribute="trailing" secondItem="u2v-h8-gR7" secondAttribute="trailing" id="k4s-rB-8wd"/>
+                            <constraint firstItem="xIx-bX-baq" firstAttribute="trailing" secondItem="u2v-h8-gR7" secondAttribute="trailing" constant="20" id="k4s-rB-8wd"/>
                             <constraint firstItem="xIx-bX-baq" firstAttribute="trailing" secondItem="Upq-2P-sIJ" secondAttribute="trailing" constant="20" id="rN1-Ys-2KX"/>
                         </constraints>
                     </view>
@@ -272,6 +275,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="newFolderButton" destination="Upq-2P-sIJ" id="lM9-0z-Ubq"/>
                         <outlet property="tableView" destination="u2v-h8-gR7" id="el6-Gd-Xx2"/>
                     </connections>
                 </viewController>
