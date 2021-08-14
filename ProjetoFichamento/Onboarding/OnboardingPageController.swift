@@ -12,7 +12,6 @@ class OnboardingPageController: UIPageViewController {
     var pages = [UIViewController]()
     let pageControl = UIPageControl()
     let initialPage = 0
-
     var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
     
@@ -29,11 +28,9 @@ extension OnboardingPageController {
     func setup() {
         dataSource = self
         delegate = self
-        
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
 
         let page1 = Page1(imageName: "firstOnboarding", titleText: "Register your main study notes in a fast and organized way!")
-        
         let page2 = Page2(imageName: "secondOnboarding", titleText: "Whenever you need it, your key records will always be in the palm of your hand!")
         
         pages.append(page1)
@@ -128,20 +125,6 @@ extension OnboardingPageController {
 
     @objc func pageControlTapped(_ sender: UIPageControl) {
         setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
-        animateControlsIfNeeded()
-    }
-
-    @objc func skipTapped(_ sender: UIButton) {
-        let lastPage = pages.count - 1
-        pageControl.currentPage = lastPage
-        
-        goToSpecificPage(index: lastPage, ofViewControllers: pages)
-        animateControlsIfNeeded()
-    }
-    
-    @objc func nextTapped(_ sender: UIButton) {
-        pageControl.currentPage += 1
-        goToNextPage()
         animateControlsIfNeeded()
     }
 }

@@ -53,7 +53,6 @@ extension Page2 {
         startButton.setTitle("Let's Start", for: .normal)
         startButton.titleLabel?.textColor = UIColor(named: "BackgroundsPrimary")
         startButton.layer.cornerRadius = 6
-        //startButton.addTarget(self, action: #selector(nextPage(_:)), for: .primaryActionTriggered)
         
         view.backgroundColor = UIColor(named: "Color2Tertiary")
     }
