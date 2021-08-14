@@ -7,10 +7,11 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class Page1: UIViewController {
     
     let stackView = UIStackView()
     let imageView = UIImageView()
+    let fakeImage = UIStackView()
     let titleLabel = UILabel()
     
     init(imageName: String, titleText: String) {
@@ -30,20 +31,22 @@ class OnboardingViewController: UIViewController {
     }
 }
 
-extension OnboardingViewController {
+extension Page1 {
     
     func style() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .center
-        //stackView.spacing = 20
+        stackView.spacing = 20
+        stackView.distribution = .equalSpacing
+        stackView.distribution = .equalCentering
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        titleLabel.backgroundColor = UIColor(named: "Color1Primary")
+        titleLabel.textColor = UIColor(named: "BackgroundsTertiary")
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
         
         view.backgroundColor = UIColor(named: "Color3Tertiary")
     }
@@ -51,14 +54,24 @@ extension OnboardingViewController {
     func layout() {
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(fakeImage)
         
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-        ])
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            
+            titleLabel.heightAnchor.constraint(equalToConstant: 80),
+            titleLabel.widthAnchor.constraint(equalToConstant: 260),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            titleLabel.bottomAnchor.constraint(equalToSystemSpacingBelow: fakeImage.topAnchor, multiplier: 20),
+
+        ])        
     }
 }

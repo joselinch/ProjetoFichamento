@@ -1,5 +1,5 @@
 //
-//  DemoViewController.swift
+//  OnboardingPageController.swift
 //  ProjetoFichamento
 //
 //  Created by Julia Silveira de Souza on 13/08/21.
@@ -7,14 +7,12 @@
 
 import UIKit
 
-class DemoViewController: UIPageViewController {
+class OnboardingPageController: UIPageViewController {
 
     var pages = [UIViewController]()
-    //let skipButton = UIButton()
     let pageControl = UIPageControl()
     let initialPage = 0
 
-    // animations
     var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
     
@@ -26,7 +24,7 @@ class DemoViewController: UIPageViewController {
     }
 }
 
-extension DemoViewController {
+extension OnboardingPageController {
     
     func setup() {
         dataSource = self
@@ -34,7 +32,7 @@ extension DemoViewController {
         
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
 
-        let page1 = OnboardingViewController(imageName: "firstOnboarding", titleText: "Register your main study notes in a fast and organized way!")
+        let page1 = Page1(imageName: "firstOnboarding", titleText: "Register your main study notes in a fast and organized way!")
         
         let page2 = Page2(imageName: "secondOnboarding", titleText: "Whenever you need it, your key records will always be in the palm of your hand!")
         
@@ -50,37 +48,23 @@ extension DemoViewController {
         pageControl.pageIndicatorTintColor = UIColor(named: "BackgroundsSecondary")
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage
-
-//        skipButton.translatesAutoresizingMaskIntoConstraints = false
-//        skipButton.setTitleColor(UIColor(named: "BackgroundsTertiary"), for: .normal)
-//        skipButton.setTitle("Skip", for: .normal)
-//        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
     }
     
     func layout() {
         view.addSubview(pageControl)
-        //view.addSubview(skipButton)
         
         NSLayoutConstraint.activate([
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //skipButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-
         ])
         
-        // for animations
-        pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 2)
-//        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
-        
+        pageControlBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 20)
         pageControlBottomAnchor?.isActive = true
-        //skipButtonTopAnchor?.isActive = true
     }
 }
 
 // MARK: - DataSource
-extension DemoViewController: UIPageViewControllerDataSource {
+extension OnboardingPageController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
@@ -106,7 +90,7 @@ extension DemoViewController: UIPageViewControllerDataSource {
 }
 
 // MARK: - Delegates
-extension DemoViewController: UIPageViewControllerDelegate {
+extension OnboardingPageController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
@@ -132,17 +116,15 @@ extension DemoViewController: UIPageViewControllerDelegate {
     }
     
     private func hideControls() {
-        //pageControlBottomAnchor?.constant = -80
-        //skipButtonTopAnchor?.constant = -80
+        pageControlBottomAnchor?.constant = -80
     }
 
     private func showControls() {
         pageControlBottomAnchor?.constant = 50
-        //skipButtonTopAnchor?.constant = 16
     }
 }
 
-extension DemoViewController {
+extension OnboardingPageController {
 
     @objc func pageControlTapped(_ sender: UIPageControl) {
         setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
