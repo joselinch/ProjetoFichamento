@@ -53,35 +53,42 @@ extension Page2 {
         startButton.setTitle("Let's Start", for: .normal)
         startButton.titleLabel?.textColor = UIColor(named: "BackgroundsPrimary")
         startButton.layer.cornerRadius = 6
+        startButton.addTarget(self, action: #selector(startNext), for: .touchUpInside)
         
         view.backgroundColor = UIColor(named: "Color2Tertiary")
     }
     
-    func layout() {
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(startButton)
-        stackView.addArrangedSubview(fakeImage)
+        @objc func startNext(_ sender: UIButton) {
+            let nextView = UITableViewController()
+            present(nextView, animated: true, completion: nil)
+            print("Fui clicado")
+        }
         
-        view.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        func layout() {
+            stackView.addArrangedSubview(imageView)
+            stackView.addArrangedSubview(titleLabel)
+            stackView.addArrangedSubview(startButton)
+            stackView.addArrangedSubview(fakeImage)
             
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.addSubview(stackView)
             
-            titleLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 90),
-            titleLabel.widthAnchor.constraint(equalToConstant: 260),
-                        
-            startButton.heightAnchor.constraint(equalToConstant: 44),
-            startButton.widthAnchor.constraint(equalToConstant: 329),
-            startButton.bottomAnchor.constraint(equalToSystemSpacingBelow: fakeImage.topAnchor, multiplier: 15)
-            
-        ])
+            NSLayoutConstraint.activate([
+                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                
+                imageView.topAnchor.constraint(equalTo: view.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                
+                titleLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor),
+                titleLabel.heightAnchor.constraint(equalToConstant: 90),
+                titleLabel.widthAnchor.constraint(equalToConstant: 260),
+                
+                startButton.heightAnchor.constraint(equalToConstant: 44),
+                startButton.widthAnchor.constraint(equalToConstant: 329),
+                startButton.bottomAnchor.constraint(equalToSystemSpacingBelow: fakeImage.topAnchor, multiplier: 15)
+                
+            ])
+        }
     }
-}
