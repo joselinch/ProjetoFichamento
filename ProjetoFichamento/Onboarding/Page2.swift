@@ -59,7 +59,7 @@ extension Page2 {
     }
     
         @objc func startNext(_ sender: UIButton) {
-            let nextView = UITableViewController()
+            let nextView = FoldersListViewController()
             present(nextView, animated: true, completion: nil)
             print("Fui clicado")
         }
