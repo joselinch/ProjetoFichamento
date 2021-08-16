@@ -21,10 +21,23 @@
                     <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="Iqi-gV-HuP"/>
                     <navigationItem key="navigationItem" id="ivY-06-pd6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="tBT-Sz-ytG" kind="show" identifier="FichamentoDetails" id="QIf-Na-uWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ue6-cp-ryO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="94"/>
+        </scene>
+        <!--FichamentoDetails-->
+        <scene sceneID="fSw-YC-Bz8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Pastas" referencedIdentifier="FichamentoDetails" id="tBT-Sz-ytG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GnC-HG-uzM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBs-3I-lqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="91"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2QH-A9-C6j">

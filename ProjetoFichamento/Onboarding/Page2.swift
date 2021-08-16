@@ -58,37 +58,43 @@ extension Page2 {
         view.backgroundColor = UIColor(named: "Color2Tertiary")
     }
     
-        @objc func startNext(_ sender: UIButton) {
-            let nextView = FoldersListViewController()
-            present(nextView, animated: true, completion: nil)
-            print("Fui clicado")
-        }
+    @objc func startNext(_ sender: UIButton) {
+        guard let window = self.view.window else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextView = storyboard.instantiateViewController(withIdentifier: "HomeStoryboard")
+        window.rootViewController = nextView
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+        let duration = 0.3
+        UIView.transition(with: window, duration: duration, options: options, animations: nil, completion: nil)
         
-        func layout() {
-            stackView.addArrangedSubview(imageView)
-            stackView.addArrangedSubview(titleLabel)
-            stackView.addArrangedSubview(startButton)
-            stackView.addArrangedSubview(fakeImage)
-            
-            view.addSubview(stackView)
-            
-            NSLayoutConstraint.activate([
-                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                
-                imageView.topAnchor.constraint(equalTo: view.topAnchor),
-                imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                
-                titleLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor),
-                titleLabel.heightAnchor.constraint(equalToConstant: 90),
-                titleLabel.widthAnchor.constraint(equalToConstant: 260),
-                
-                startButton.heightAnchor.constraint(equalToConstant: 44),
-                startButton.widthAnchor.constraint(equalToConstant: 329),
-                startButton.bottomAnchor.constraint(equalToSystemSpacingBelow: fakeImage.topAnchor, multiplier: 15)
-                
-            ])
-        }
+        UserDefaults.standard.set(true, forKey: "hasFinishedOnboarding")
     }
+    
+    func layout() {
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(startButton)
+        stackView.addArrangedSubview(fakeImage)
+        
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            
+            titleLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 90),
+            titleLabel.widthAnchor.constraint(equalToConstant: 260),
+            
+            startButton.heightAnchor.constraint(equalToConstant: 44),
+            startButton.widthAnchor.constraint(equalToConstant: 329),
+            startButton.bottomAnchor.constraint(equalToSystemSpacingBelow: fakeImage.topAnchor, multiplier: 15)
+            
+        ])
+    }
+}

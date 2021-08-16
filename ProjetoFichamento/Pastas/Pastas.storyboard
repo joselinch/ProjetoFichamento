@@ -128,7 +128,7 @@
         <!--Fichamentos-->
         <scene sceneID="rcu-DX-LRL">
             <objects>
-                <viewController id="IV9-dv-h98" customClass="FichamentoListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FichamentoDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IV9-dv-h98" customClass="FichamentoListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IxM-qB-QbG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

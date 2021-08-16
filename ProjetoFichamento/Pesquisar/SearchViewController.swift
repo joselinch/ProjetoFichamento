@@ -50,11 +50,16 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+
         navigationItem.searchController = searchController
+        
         searchController.searchBar.placeholder = "Enter the folder name"
         searchController.searchBar.showsSearchResultsButton = true
+        
         latestSearchTableView.delegate = self
         latestSearchTableView.dataSource = self
+        
         setuplatestSearchTableView()
     }
     
@@ -118,18 +123,26 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         return cell
     }
     
-    //Não está sendo executada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentSection = searchSections[indexPath.section]
         switch currentSection {
         case .currentSearch:
             let selectedFolder = filteredFolders[indexPath.row]
             latestsResearches.insert(selectedFolder, at: 0)
-            // TODO: Passar pra tela da categoria selecionada
+            performSegue(withIdentifier: "FichamentoDetails", sender: selectedFolder)
             latestSearchTableView.reloadData()
         case .latestResearch:
+            let selectedFolder = latestsResearches[indexPath.row]
+            performSegue(withIdentifier: "FichamentoDetails", sender: selectedFolder)
             latestSearchTableView.reloadData()
-            // TODO: Passar pra tela da categoria selecionada
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FichamentoDetails" {
+            guard let selectedFolder = sender as? Category else { return }
+            let openDetail = segue.destination as? FichamentoListViewController
+            openDetail?.category = selectedFolder
         }
     }
 }
