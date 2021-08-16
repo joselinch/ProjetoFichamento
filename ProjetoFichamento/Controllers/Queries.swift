@@ -82,8 +82,14 @@ func editCard(oldCategory: Category, newCategory: Category, card: Card, cardAnot
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
 
-    newCategory.addToCard(card)
-    oldCategory.removeFromCard(card)
+    
+    if oldCategory == newCategory {
+
+    }
+    else {
+        newCategory.addToCard(card)
+        oldCategory.removeFromCard(card)
+    }
     
     do {
         try context.save()
