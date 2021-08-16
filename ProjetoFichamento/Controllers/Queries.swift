@@ -162,7 +162,3 @@ func addFile(card: Card, fileURL: URL, fileName: String) {
 func removeFile(file: Files) {
     context.delete(file)
 }
-
-//--------------------------------------
-
-////MARK: Pesquisar
