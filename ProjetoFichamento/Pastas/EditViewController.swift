@@ -82,16 +82,12 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
     
     //MARK: - Save button
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        let sucessAlert = UIAlertController(title: "Success", message: "Record saved!", preferredStyle: .alert)
         let errAlert = UIAlertController(title: "Error", message: "Record not saved!", preferredStyle: .alert)
 
         if let folder = selectedCategory {
             if textFieldTitle.text != "" {
-                editCard(card: self.card!, cardAnotation: userNotes.text, cardAuthor: textFieldAuthor.text ?? "", cardDate: datePicker.date, cardIsFavorite: false , cardReference: textFieldReference.text ?? "", cardStatus: readingStatus, cardTitle: textFieldTitle.text ?? "")
-                
-                cleanPage()
-                self.present(sucessAlert, animated: true, completion: nil)
-                self.navigationController?.popToRootViewController(animated: true)
+                editCard(oldCategory: self.category!, newCategory: folder, card: self.card!, cardAnotation: userNotes.text, cardAuthor: textFieldAuthor.text ?? "", cardDate: datePicker.date, cardIsFavorite: false , cardReference: textFieldReference.text ?? "", cardStatus: readingStatus, cardTitle: textFieldTitle.text ?? "")
+                        navigationController?.popToRootViewController(animated: true)
             }
             else {
                 self.present(errAlert, animated: true, completion: nil)

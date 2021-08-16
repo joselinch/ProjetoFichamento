@@ -73,7 +73,7 @@ func duplicateCard(card: Card, category: Category) {
 
 //MARK: Edita Ficha
 
-func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String){
+func editCard(oldCategory: Category, newCategory: Category, card: Card, cardAnotation: String, cardAuthor: String, cardDate: Date, cardIsFavorite: Bool, cardReference: String, cardStatus: String, cardTitle: String){
     card.anotations = cardAnotation
     card.author = cardAuthor
     card.date = cardDate
@@ -81,6 +81,9 @@ func editCard(card: Card, cardAnotation: String, cardAuthor: String, cardDate: D
     card.status = cardStatus
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
+
+    newCategory.addToCard(card)
+    oldCategory.removeFromCard(card)
     
     do {
         try context.save()
