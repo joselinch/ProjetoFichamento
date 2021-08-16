@@ -39,6 +39,9 @@ class DetalhesViewController: UIViewController {
     @IBAction func deleteButton(_ sender: Any) {
         delete(card: card!, category: category!)
     }
+    @IBAction func editButton(_ sender: Any) {
+        performSegue(withIdentifier: "edit-segue", sender: card)
+    }
     
     var card: Card?
     var category: Category?
@@ -104,5 +107,14 @@ class DetalhesViewController: UIViewController {
         
         contentViewHeight.constant = initialContentViewHeight + extraHeight
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "edit-segue"{
+            guard let editViewController = segue.destination as? EditViewController,
+                let card = sender as? Card else { return }
+            editViewController.card = card
+            editViewController.category = self.category
+        }
     }
 }

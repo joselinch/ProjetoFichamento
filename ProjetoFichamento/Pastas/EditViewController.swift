@@ -8,9 +8,10 @@
 import UIKit
 
 class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModalListViewControllerDelegate {
-
+    
     func didSelectedCategory(category: Category) {
         self.selectedCategory = category
+        print(category)
         folderButtonOutlet.setTitle(category.name, for: .normal)
     }
   
@@ -26,7 +27,14 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
     
     var readingStatus = ""
     var selectedCategory: Category?
+    
+    var card: Card?
+    var category: Category?
 
+    @IBAction func folderButton(_ sender: Any) {
+        
+        performSegue(withIdentifier: "edit-modal-folder", sender: nil)
+    }
     //MARK: - Delete Button
     @IBAction func deleteButton(_ sender: Any) {
     }
@@ -96,6 +104,17 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
         if let folder = selectedCategory {
             folderButtonOutlet.setTitle(folder.name, for: .normal)
         }
+        
+        textFieldReference.text = card?.reference
+        textFieldAuthor.text = card?.author
+        textFieldTitle.text = card?.title
+        readingStatus = card?.status ?? "nao veio"
+        userNotes.text = card?.anotations ?? "faiou"
+        presentStatusButtonOutlet.setTitle(card?.status ?? "faio", for: .normal)
+        datePicker.date = card?.date ?? Date()
+        selectedCategory = category
+        folderButtonOutlet.setTitle(category?.name, for: .normal)
+        
 
         presentStatusButtonOutlet.layer.cornerRadius = 6
         delete.layer.cornerRadius = 6
@@ -103,8 +122,6 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
         delete.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
         userNotes.delegate = self
-        userNotes.text = "Write here your notes"
-        userNotes.textColor = UIColor.lightGray
     }
     
     //MARK: - Delegate
@@ -131,7 +148,7 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
     //MARK: - Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "modal-folder" {
+        if segue.identifier == "edit-modal-folder" {
             let navController = segue.destination as? UINavigationController
             let destination = navController?.topViewController as? EditFoldersModalListViewController
             destination?.delegate = self

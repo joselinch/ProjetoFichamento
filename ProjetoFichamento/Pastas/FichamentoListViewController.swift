@@ -12,32 +12,6 @@ import UIKit
 class FichamentoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 //MARK: - Add fichamento
-    @IBAction func addCardButton(_ sender: Any) {
-        let alert = UIAlertController(title: "New Card", message: "Enter a title for this card", preferredStyle: .alert)
-        
-        alert.addTextField(){ (textField) in
-            textField.placeholder = "Enter a title"
-        }
-        
-        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(alertCancel)
-        
-        let alertSave = UIAlertAction(title: "Save", style: .default) { (action) in
-            
-            let textField = alert.textFields![0]
-            
-            let name = textField.text
-            let data = Date()
-            let card = addCard(category: self.category!, cardAnotation: "", cardAuthor: "", cardDate: data, cardIsFavorite: false, cardReference: "", cardStatus: "", cardTitle: name ?? "Faiooo")
-            self.cards.append(card)
-            self.fetchData()
-        }
-        
-        alert.addAction(alertSave)
-        self.present(alert, animated: true, completion: nil)
-    
-    }
 
 //MARK: - Outlet, variaveis, viewDidLoad() e fetchData()
     @IBOutlet weak var tableView: UITableView!
@@ -69,6 +43,12 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
                 let card = sender as? Card else { return }
             detailViewController.card = card
             detailViewController.category = self.category
+        }
+        if segue.identifier == "edit-fichamento-segue" {
+            guard let editViewController = segue.destination as? EditViewController,
+                  let card = sender as? Card else { return }
+            editViewController.card = card
+            editViewController.category = self.category
         }
     }
     
@@ -137,8 +117,10 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         //MARK: - Editar
         
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-
             
+            let cardSelected = self.cards[indexPath.row]
+            
+            self.performSegue(withIdentifier: "edit-fichamento-segue", sender: cardSelected)
             success(true)
         })
         

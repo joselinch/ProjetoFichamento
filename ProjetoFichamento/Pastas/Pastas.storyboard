@@ -217,22 +217,17 @@
                             <constraint firstItem="6IB-jz-Nid" firstAttribute="trailing" secondItem="lLL-wW-zoY" secondAttribute="trailing" id="yoj-TB-mjn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fichamentos" largeTitleDisplayMode="never" id="8n4-xR-H8U">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Tcb-tx-jIj">
-                            <connections>
-                                <action selector="addCardButton:" destination="IV9-dv-h98" id="OrA-ls-4mc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Fichamentos" largeTitleDisplayMode="never" id="8n4-xR-H8U"/>
                     <connections>
                         <outlet property="navbarTitle" destination="8n4-xR-H8U" id="4io-1n-R7b"/>
                         <outlet property="tableView" destination="lLL-wW-zoY" id="vD3-8b-k7m"/>
                         <segue destination="pK4-Z4-70p" kind="show" identifier="detailSegue" id="362-Vj-ktK"/>
+                        <segue destination="pRr-Fy-oqc" kind="show" identifier="edit-fichamento-segue" id="GI1-GC-HdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09H-X1-WZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1916" y="106"/>
+            <point key="canvasLocation" x="1878" y="106"/>
         </scene>
         <!--Detalhe-->
         <scene sceneID="14S-u3-8aD">
@@ -418,7 +413,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IQ7-Y1-hmm">
                             <color key="tintColor" name="Color1Primary"/>
                             <connections>
-                                <segue destination="pRr-Fy-oqc" kind="show" id="AsT-w6-Lwt"/>
+                                <action selector="editButton:" destination="pK4-Z4-70p" id="CpZ-eQ-Bna"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -433,6 +428,7 @@
                         <outlet property="statusLabel" destination="0nS-Sw-Lbk" id="fiR-Bq-l8n"/>
                         <outlet property="textTextView" destination="1DX-Fa-zaA" id="VBr-TO-8wB"/>
                         <outlet property="titleLabel" destination="yuS-pV-i5f" id="ecH-kj-b4c"/>
+                        <segue destination="pRr-Fy-oqc" kind="show" identifier="edit-segue" id="2Zc-og-n4P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qY0-nb-zGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -494,7 +490,7 @@
                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="SgT-fP-a6c" kind="presentation" id="vtE-Xl-Nik"/>
+                                                    <action selector="folderButton:" destination="pRr-Fy-oqc" eventType="touchUpInside" id="Ijy-2g-37E"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98r-qa-2P7">
@@ -643,11 +639,12 @@
                         <outlet property="textFieldReference" destination="nGg-Nh-Z6h" id="aRv-u5-AVF"/>
                         <outlet property="textFieldTitle" destination="tuX-p1-74A" id="a59-2w-OnG"/>
                         <outlet property="userNotes" destination="DGq-e2-8ir" id="kzX-EP-Ya4"/>
+                        <segue destination="SgT-fP-a6c" kind="presentation" identifier="edit-modal-folder" id="w5R-Ba-vVh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlg-yn-elC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3830" y="105"/>
+            <point key="canvasLocation" x="1877" y="1133"/>
         </scene>
         <!--Folder-->
         <scene sceneID="Skp-sC-Z2I">
@@ -741,7 +738,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xo-wV-o8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5837.6000000000004" y="105.69715142428787"/>
+            <point key="canvasLocation" x="4110" y="1134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZhS-BN-P0G">
@@ -759,9 +756,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDE-xD-8U1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4896.8000000000002" y="105.69715142428787"/>
+            <point key="canvasLocation" x="2945" y="1134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Zc-og-n4P"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="folder" catalog="system" width="128" height="97"/>

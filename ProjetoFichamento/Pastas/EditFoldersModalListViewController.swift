@@ -84,7 +84,9 @@ class EditFoldersModalListViewController: UIViewController, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        print("oioi")
         if let pasta = pastas?[indexPath.row] {
+            print(pasta)
             delegate?.didSelectedCategory(category: pasta)
         }
         navigationController?.dismiss(animated: true, completion: nil)
