@@ -38,7 +38,6 @@
 		B1EB1B8B26C5EFD0002D1C0E /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8A26C5EFD0002D1C0E /* DetalhesViewController.swift */; };
 		B1EB1B8D26C6DAEE002D1C0E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8C26C6DAEE002D1C0E /* EditViewController.swift */; };
 		B1EB1B8F26C6E74F002D1C0E /* EditFoldersModalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8E26C6E74F002D1C0E /* EditFoldersModalListViewController.swift */; };
-		B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC526B1F42400874612 /* dataFolders.swift */; };
 		B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */; };
 		B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -77,7 +76,6 @@
 		B1EB1B8A26C5EFD0002D1C0E /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
 		B1EB1B8C26C6DAEE002D1C0E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B1EB1B8E26C6E74F002D1C0E /* EditFoldersModalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoldersModalListViewController.swift; sourceTree = "<group>"; };
-		B1EFFCC526B1F42400874612 /* dataFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataFolders.swift; sourceTree = "<group>"; };
 		B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTableViewCell.swift; sourceTree = "<group>"; };
 		B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				2474F20C26B0747500E90FE7 /* Pastas.storyboard */,
-				B1EFFCC526B1F42400874612 /* dataFolders.swift */,
 				B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */,
 				B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */,
 				B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */,
@@ -294,7 +291,6 @@
 				27D1F9EF26A9CEDB001987CB /* ViewController.swift in Sources */,
 				9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */,
 				27D1F9EB26A9CEDB001987CB /* AppDelegate.swift in Sources */,
-				B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */,
 				B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */,
 				2409D05C26B8894800EAD3B4 /* FichamentoViewController.swift in Sources */,
 				27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */,
