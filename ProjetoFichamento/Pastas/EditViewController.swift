@@ -37,8 +37,28 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
     }
     //MARK: - Delete Button
     @IBAction func deleteButton(_ sender: Any) {
+        delete(card: card!, category: category!)
     }
     
+    func delete(card: Card, category: Category) {
+        let alert = UIAlertController(title: "Delete \(self.card?.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
+        
+        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(alertCancel)
+        
+        let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
+
+            
+            removeCard(category: category, card: card)
+         
+            _ = self.navigationController?.popViewController(animated: true)
+            
+        }
+        
+        alert.addAction(alertSave)
+        self.present(alert, animated: true, completion: nil)
+    }
     //MARK: - Reading Status Button
     
     @IBOutlet weak var presentStatusButtonOutlet: UIButton!
