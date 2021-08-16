@@ -31,9 +31,13 @@
 		9F2CF93626B9E76D000E236D /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */; };
 		9F2CF93726B9E76D000E236D /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */; };
 		9F2CF93826B9E76D000E236D /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */; };
+		9F63F95426C2F2C800AC2118 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F95326C2F2C800AC2118 /* SearchViewController.swift */; };
 		B186834F26C44154001B18EC /* ProjetoFichamento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D1F9F326A9CEDB001987CB /* ProjetoFichamento.xcdatamodeld */; };
 		B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */; };
 		B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */; };
+		B1EB1B8B26C5EFD0002D1C0E /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8A26C5EFD0002D1C0E /* DetalhesViewController.swift */; };
+		B1EB1B8D26C6DAEE002D1C0E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8C26C6DAEE002D1C0E /* EditViewController.swift */; };
+		B1EB1B8F26C6E74F002D1C0E /* EditFoldersModalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB1B8E26C6E74F002D1C0E /* EditFoldersModalListViewController.swift */; };
 		B1EFFCC626B1F42400874612 /* dataFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC526B1F42400874612 /* dataFolders.swift */; };
 		B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */; };
 		B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */; };
@@ -67,8 +71,12 @@
 		9F2CF93026B9E76D000E236D /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F2CF93126B9E76D000E236D /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9F2CF93226B9E76D000E236D /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9F63F95326C2F2C800AC2118 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentosTableViewCell.swift; sourceTree = "<group>"; };
 		B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FichamentoListViewController.swift; sourceTree = "<group>"; };
+		B1EB1B8A26C5EFD0002D1C0E /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
+		B1EB1B8C26C6DAEE002D1C0E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		B1EB1B8E26C6E74F002D1C0E /* EditFoldersModalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoldersModalListViewController.swift; sourceTree = "<group>"; };
 		B1EFFCC526B1F42400874612 /* dataFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataFolders.swift; sourceTree = "<group>"; };
 		B1EFFCC726B1FFCF00874612 /* FoldersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTableViewCell.swift; sourceTree = "<group>"; };
 		B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersListViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +112,9 @@
 				B1EFFCC926B201FF00874612 /* FoldersListViewController.swift */,
 				B1AB161D26BA221800C27229 /* FichamentosTableViewCell.swift */,
 				B1AB162126BA25FA00C27229 /* FichamentoListViewController.swift */,
+				B1EB1B8A26C5EFD0002D1C0E /* DetalhesViewController.swift */,
+				B1EB1B8C26C6DAEE002D1C0E /* EditViewController.swift */,
+				B1EB1B8E26C6E74F002D1C0E /* EditFoldersModalListViewController.swift */,
 			);
 			path = Pastas;
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2474F20E26B0748300E90FE7 /* Pesquisar.storyboard */,
+				9F63F95326C2F2C800AC2118 /* SearchViewController.swift */,
 			);
 			path = Pesquisar;
 			sourceTree = "<group>";
@@ -286,11 +298,15 @@
 				B1AB162226BA25FA00C27229 /* FichamentoListViewController.swift in Sources */,
 				2409D05C26B8894800EAD3B4 /* FichamentoViewController.swift in Sources */,
 				27D1F9ED26A9CEDB001987CB /* SceneDelegate.swift in Sources */,
+				B1EB1B8B26C5EFD0002D1C0E /* DetalhesViewController.swift in Sources */,
 				9F2CF93326B9E76D000E236D /* Files+CoreDataClass.swift in Sources */,
+				9F63F95426C2F2C800AC2118 /* SearchViewController.swift in Sources */,
 				9F2CF93426B9E76D000E236D /* Files+CoreDataProperties.swift in Sources */,
 				B1EFFCCA26B201FF00874612 /* FoldersListViewController.swift in Sources */,
+				B1EB1B8F26C6E74F002D1C0E /* EditFoldersModalListViewController.swift in Sources */,
 				B1AB161E26BA221800C27229 /* FichamentosTableViewCell.swift in Sources */,
 				272AF95326C462F900FE5749 /* FoldersModalListViewController.swift in Sources */,
+				B1EB1B8D26C6DAEE002D1C0E /* EditViewController.swift in Sources */,
 				B1EFFCC826B1FFCF00874612 /* FoldersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LTT64UC4XT;
+				DEVELOPMENT_TEAM = 876KXU24XS;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LTT64UC4XT;
+				DEVELOPMENT_TEAM = 876KXU24XS;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -25,7 +25,7 @@ func addCard(category: Category, cardAnotation: String, cardAuthor: String, card
     card.date = cardDate
     card.isFavorite = cardIsFavorite
     card.reference = cardReference
-    
+    card.status = cardStatus
     category.addToCard(card)
     
     do {
@@ -162,7 +162,3 @@ func addFile(card: Card, fileURL: URL, fileName: String) {
 func removeFile(file: Files) {
     context.delete(file)
 }
-
-//--------------------------------------
-
-////MARK: Pesquisar

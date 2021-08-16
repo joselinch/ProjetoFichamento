@@ -30,7 +30,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             let name = textField.text
             let data = Date()
             let card = addCard(category: self.category!, cardAnotation: "", cardAuthor: "", cardDate: data, cardIsFavorite: false, cardReference: "", cardStatus: "", cardTitle: name ?? "Faiooo")
-            self.cards?.append(card)
+            self.cards.append(card)
             self.fetchData()
         }
         
@@ -44,23 +44,31 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var navbarTitle: UINavigationItem!
     
     var category: Category?
-    var cards: [Card]?
+    var cards: [Card] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        cards = category?.card?.allObjects as? [Card]
         navbarTitle.title = category?.name
-        self.tableView.reloadData()
-        
+
+        fetchData()
     }
 
     func fetchData() {
-        cards = category?.card?.allObjects as? [Card]
+        cards = category?.card?.allObjects as? [Card] ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue"{
+            guard let detailViewController = segue.destination as? DetalhesViewController,
+                let card = sender as? Card else { return }
+            detailViewController.card = card
+            detailViewController.category = self.category
         }
     }
     
@@ -69,8 +77,13 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         return 1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let card = cards[indexPath.row]
+        performSegue(withIdentifier: "detailSegue", sender: card)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards?.count ?? 0
+        return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,11 +91,15 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "title-fichamento", for: indexPath) as! FichamentosTableViewCell
         
 
-        let card = cards?[indexPath.row]
+        let card = cards[indexPath.row]
         
-        cell.titleLabel.text = card?.title
+        cell.titleLabel.text = card.title
         
         return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
     }
     
 //MARK: - Swipe
@@ -93,9 +110,9 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
             
-            let cardSelected = self.cards![indexPath.row]
+            let cardSelected = self.cards[indexPath.row]
             
-            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
             
             let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
@@ -131,7 +148,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         //MARK: - Duplicar
         
         let duplicateAction = UIContextualAction(style: .normal, title:  "Duplicate", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            let cardSelected = self.cards![indexPath.row]
+            let cardSelected = self.cards[indexPath.row]
             
             let alert = UIAlertController(title: "Duplicate \(cardSelected.title ?? "") ?", message: "This will duplicate all the records in this card", preferredStyle: .alert)
             
