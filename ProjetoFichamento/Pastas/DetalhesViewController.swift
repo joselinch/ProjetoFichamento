@@ -37,9 +37,11 @@ class DetalhesViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     
     @IBAction func deleteButton(_ sender: Any) {
+        delete(card: card!, category: category!)
     }
     
     var card: Card?
+    var category: Category?
     var initialHeight: CGFloat?
     var initialContentViewHeight: CGFloat?
     
@@ -55,20 +57,41 @@ class DetalhesViewController: UIViewController {
         
         guard let card = card else { fatalError("Card is nil") }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        
         titleLabel.text = card.title
-        folderLabel.text = card.categories?.name
+        folderLabel.text = category?.name
         textTextView.text = card.anotations
         authorLabel.text = card.author
         referenceLabel.text = card.reference
         statusLabel.text = card.status
-        dateLabel.text = card.date?.description
+        dateLabel.text = dateFormatter.string(from: card.date ?? Date())
         
-        print(card.categories?.name ?? "nn tem")
-        print(card.status ?? "status falta")
         
         initialHeight = titleLabel.bounds.height + folderLabel.bounds.height + authorLabel.bounds.height + referenceLabel.bounds.height
         
         initialContentViewHeight = contentViewHeight.constant
+    }
+    
+    func delete(card: Card, category: Category) {
+        let alert = UIAlertController(title: "Delete \(self.card?.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
+        
+        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(alertCancel)
+        
+        let alertSave = UIAlertAction(title: "Delete", style: .default) { (action) in
+
+            
+            removeCard(category: category, card: card)
+         
+            _ = self.navigationController?.popViewController(animated: true)
+            
+        }
+        
+        alert.addAction(alertSave)
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
