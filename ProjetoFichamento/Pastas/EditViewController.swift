@@ -13,9 +13,6 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
         self.selectedCategory = category
         folderButtonOutlet.setTitle(category.name, for: .normal)
     }
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
   
     //MARK: - Outlets and variables
     @IBOutlet weak var textFieldTitle: UITextField!

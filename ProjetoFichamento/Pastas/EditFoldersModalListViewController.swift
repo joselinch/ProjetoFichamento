@@ -17,6 +17,7 @@ class EditFoldersModalListViewController: UIViewController, UITableViewDataSourc
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newFolderButton: UIButton!
+
     
     @IBAction func createButton(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)

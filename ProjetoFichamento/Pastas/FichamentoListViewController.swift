@@ -66,9 +66,9 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue"{
             guard let detailViewController = segue.destination as? DetalhesViewController,
-                  let card = sender as? Card else { return }
-
+                let card = sender as? Card else { return }
             detailViewController.card = card
+            detailViewController.category = self.category
         }
     }
     
@@ -98,6 +98,10 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
 //MARK: - Swipe
     
     func tableView(_ tableView: UITableView,  trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
@@ -108,7 +112,7 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             
             let cardSelected = self.cards[indexPath.row]
             
-            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
             
             let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
