@@ -52,7 +52,7 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
             
             removeCard(category: category, card: card)
          
-            _ = self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
             
         }
         
