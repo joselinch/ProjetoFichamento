@@ -14,7 +14,7 @@ enum SearchCategory: CaseIterable {
     var description: String {
         switch self {
         case .latestResearch:
-            return "Latest Research"
+            return "Latest Search"
         case .currentSearch:
             return ""
         }
@@ -23,11 +23,12 @@ enum SearchCategory: CaseIterable {
 
 class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var searchController: UISearchController!
     let searchSections = SearchCategory.allCases
-    var folders: [Dados] = mockData()
-    var filteredFolders: [Dados] = []
-    var latestsResearches: [Dados] = []
+    var folders: [Category]? = returnCategory()
+    var filteredFolders: [Category] = []
+    var latestsResearches: [Category] = []
     let latestSearchTableView = UITableView()
     
     func setuplatestSearchTableView() {
@@ -64,30 +65,26 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         }
         
         let formattedTypedText = typedText.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-        filteredFolders.removeAll()
-        DispatchQueue.main.async {
-            self.latestSearchTableView.reloadData()
-        }
+        //        filteredFolders.removeAll()
+        //        DispatchQueue.main.async {
+        //            self.latestSearchTableView.reloadData()
+        //        }
+        //        for folder in folders {
+        //            if folder.folder.lowercased() == formattedTypedText {
+        //                filteredFolders.append(folder)
+        //                DispatchQueue.main.async {
+        //                    self.latestSearchTableView.reloadData()
+        //                }
+        //            }
+        //        }
         
-        for folder in folders {
-            if folder.folder.lowercased() == formattedTypedText {
-                filteredFolders.append(folder)
-                DispatchQueue.main.async {
-                    self.latestSearchTableView.reloadData()
-                }
-            }
-        }
+        let filterFolders = folders?.filter({ folder in
+            let formattedFolderName = folder.name?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+            return (((formattedFolderName!.contains(formattedTypedText))))
+        })
         
-//        let filterFolders = folders.filter({ folder in
-//            let formattedFolderName = folder.folder.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-//            print(formattedFolderName)
-//            return formattedFolderName.contains(formattedTypedText)
-//        })
-        
-        if let resultsController = searchController.searchResultsController as? SearchViewController {
-            //resultsController.filteredFolders = filterFolders
-            resultsController.latestSearchTableView.reloadData()
-        }
+        self.filteredFolders = filterFolders!
+        self.latestSearchTableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,24 +111,25 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
         switch currentSection {
         case .currentSearch:
-            cell.textLabel?.text = filteredFolders[indexPath.row].folder
+            cell.textLabel?.text = filteredFolders[indexPath.row].name
         case .latestResearch:
-            cell.textLabel?.text = latestsResearches[indexPath.row].folder
+            cell.textLabel?.text = latestsResearches[indexPath.row].name
         }
         return cell
     }
     
+    //Não está sendo executada
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentSection = searchSections[indexPath.section]
         switch currentSection {
         case .currentSearch:
             let selectedFolder = filteredFolders[indexPath.row]
             latestsResearches.insert(selectedFolder, at: 0)
-            // TODO: Passar pra tela de detalhes
+            // TODO: Passar pra tela da categoria selecionada
             latestSearchTableView.reloadData()
         case .latestResearch:
-            let selectedFolder = latestsResearches[indexPath.row]
-        // TODO: Passar pra tela de detalhes
+            latestSearchTableView.reloadData()
+            // TODO: Passar pra tela da categoria selecionada
         }
     }
 }
