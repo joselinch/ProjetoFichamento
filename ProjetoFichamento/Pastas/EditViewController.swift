@@ -87,10 +87,11 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
 
         if let folder = selectedCategory {
             if textFieldTitle.text != "" {
-                let _ = addCard(category: folder, cardAnotation: userNotes.text, cardAuthor: textFieldAuthor.text ?? "", cardDate: datePicker.date, cardIsFavorite: false, cardReference: textFieldReference.text ?? "", cardStatus: readingStatus, cardTitle: textFieldTitle.text ?? "")
+                editCard(card: self.card!, cardAnotation: userNotes.text, cardAuthor: textFieldAuthor.text ?? "", cardDate: datePicker.date, cardIsFavorite: false , cardReference: textFieldReference.text ?? "", cardStatus: readingStatus, cardTitle: textFieldTitle.text ?? "")
+                
                 cleanPage()
                 self.present(sucessAlert, animated: true, completion: nil)
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
             }
             else {
                 self.present(errAlert, animated: true, completion: nil)

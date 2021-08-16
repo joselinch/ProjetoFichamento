@@ -66,7 +66,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" name="Color1Primary"/>
                                                 <state key="normal" title="Status">
-                                                    <color key="titleColor" red="0.93486154079999995" green="0.36744245889999999" blue="0.1489127874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleColor" name="Color1Primary"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="presentStatusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fcu-xZ-Pme"/>
@@ -232,7 +232,7 @@
                                                     <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="GreenPrimary"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -284,11 +284,11 @@
             </objects>
             <point key="canvasLocation" x="2836.2318840579715" y="109.82142857142857"/>
         </scene>
-        <!--Create record-->
+        <!--Smart note-->
         <scene sceneID="772-8d-YwX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QtL-eq-uDO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create record" image="doc.badge.ellipsis" catalog="system" id="ttQ-66-HKr"/>
+                    <tabBarItem key="tabBarItem" title="Smart note" image="doc.badge.plus" catalog="system" id="ttQ-66-HKr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xx3-D5-9ze">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -323,7 +323,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.badge.ellipsis" catalog="system" width="119" height="128"/>
+        <image name="doc.badge.plus" catalog="system" width="119" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Color1Primary">

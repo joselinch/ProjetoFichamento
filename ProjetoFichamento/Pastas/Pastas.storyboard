@@ -133,39 +133,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLL-wW-zoY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLL-wW-zoY">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-fichamento" id="d4R-Wm-F9Z" customClass="FichamentosTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4R-Wm-F9Z" id="KAe-Av-EFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="zYT-h4-61V">
-                                                    <rect key="frame" x="20" y="4" width="335" height="44.5"/>
+                                                    <rect key="frame" x="20" y="4" width="335" height="44"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.text" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JHf-iB-7tw">
-                                                            <rect key="frame" x="6" y="7" width="32.5" height="30"/>
+                                                            <rect key="frame" x="6" y="7" width="32" height="29.5"/>
                                                             <color key="tintColor" name="Color2Primary"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="JHf-iB-7tw" secondAttribute="height" id="CsL-Rd-Pec"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0iJ-IH-hIa">
-                                                            <rect key="frame" x="306" y="14.5" width="23" height="16.5"/>
+                                                            <rect key="frame" x="306" y="14" width="23" height="16.5"/>
                                                             <color key="tintColor" name="Color2Primary"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0iJ-IH-hIa" secondAttribute="height" multiplier="8:7" id="kc1-dv-g9q"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Stj-9E-Eqe">
-                                                            <rect key="frame" x="44.5" y="10.5" width="255.5" height="24"/>
+                                                            <rect key="frame" x="44" y="10" width="256" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-Rc-f55">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="255.5" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="24"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                     <color key="textColor" name="Color2Primary"/>
                                                                     <nil key="highlightedColor"/>
@@ -644,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlg-yn-elC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="1133"/>
+            <point key="canvasLocation" x="1909" y="1133"/>
         </scene>
         <!--Folder-->
         <scene sceneID="Skp-sC-Z2I">
@@ -688,7 +688,7 @@
                                                     <rect key="frame" x="16" y="0.0" width="303" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="GreenPrimary"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

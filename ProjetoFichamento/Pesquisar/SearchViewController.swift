@@ -42,6 +42,8 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         latestSearchTableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         latestSearchTableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         latestSearchTableView.estimatedRowHeight = 45.0
+        //latestSearchTableView.separatorStyle = .none
+        
     }
     
     override func viewDidLoad() {
@@ -111,6 +113,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .white
+            headerView.textLabel?.textColor = #colorLiteral(red: 0.997836411, green: 0.402813971, blue: 0.3040129542, alpha: 1)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentSection = searchSections[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
@@ -119,6 +128,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             cell.textLabel?.text = filteredFolders[indexPath.row].name
         case .latestResearch:
             cell.textLabel?.text = latestsResearches[indexPath.row].name
+            cell.textLabel?.textColor = #colorLiteral(red: 0.548969686, green: 0.5490515828, blue: 0.548951745, alpha: 1)
         }
         return cell
     }
