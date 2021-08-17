@@ -42,7 +42,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         latestSearchTableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         latestSearchTableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         latestSearchTableView.estimatedRowHeight = 45.0
-        //latestSearchTableView.separatorStyle = .none
+        latestSearchTableView.separatorStyle = .none
         
     }
     

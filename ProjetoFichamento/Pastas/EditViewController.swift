@@ -125,9 +125,9 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
         textFieldReference.text = card?.reference
         textFieldAuthor.text = card?.author
         textFieldTitle.text = card?.title
-        readingStatus = card?.status ?? "nao veio"
-        userNotes.text = card?.anotations ?? "faiou"
-        presentStatusButtonOutlet.setTitle(card?.status ?? "faio", for: .normal)
+        readingStatus = card?.status ?? "Status"
+        userNotes.text = card?.anotations
+        presentStatusButtonOutlet.setTitle(card?.status ?? "Status", for: .normal)
         datePicker.date = card?.date ?? Date()
         selectedCategory = category
         folderButtonOutlet.setTitle(category?.name, for: .normal)

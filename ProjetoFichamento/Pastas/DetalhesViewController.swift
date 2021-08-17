@@ -68,7 +68,7 @@ class DetalhesViewController: UIViewController {
         textTextView.text = card.anotations
         authorLabel.text = card.author
         referenceLabel.text = card.reference
-        statusLabel.text = card.status
+        statusLabel.text = card.status ?? "Status"
         dateLabel.text = dateFormatter.string(from: card.date ?? Date())
         
         
