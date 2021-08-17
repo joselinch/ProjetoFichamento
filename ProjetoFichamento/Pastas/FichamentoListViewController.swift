@@ -18,7 +18,11 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var navbarTitle: UINavigationItem!
     
     var category: Category?
-    var cards: [Card] = []
+    var cards: [Card] = [] {
+        didSet {
+            tableView?.isHidden = cards.isEmpty
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

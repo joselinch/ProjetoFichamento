@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_state" translatesAutoresizingMaskIntoConstraints="NO" id="3x0-8B-6Z4">
+                                <rect key="frame" x="0.0" y="96" width="375" height="475"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j7S-hc-lP9">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-detail" id="krw-AY-U2e" customClass="FoldersTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="375" height="52"/>
@@ -101,9 +104,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3x0-8B-6Z4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Sq-TX-5qT"/>
+                            <constraint firstItem="3x0-8B-6Z4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="top" id="8Kx-YL-EDQ"/>
+                            <constraint firstItem="3x0-8B-6Z4" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="8eu-xm-u2T"/>
                             <constraint firstItem="j7S-hc-lP9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="8ji-tm-Z56"/>
                             <constraint firstItem="j7S-hc-lP9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DT7-Rd-2ve"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3x0-8B-6Z4" secondAttribute="trailing" id="L2x-vI-jhD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3x0-8B-6Z4" secondAttribute="bottom" id="NI5-Va-Ky1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j7S-hc-lP9" secondAttribute="trailing" id="jA6-Jz-vQP"/>
+                            <constraint firstItem="3x0-8B-6Z4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tQy-zT-90p"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="j7S-hc-lP9" secondAttribute="bottom" id="wVH-q8-JTs"/>
                         </constraints>
                     </view>
@@ -133,6 +142,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_state_fichamento" translatesAutoresizingMaskIntoConstraints="NO" id="m2k-UK-Kf9">
+                                <rect key="frame" x="0.0" y="49" width="375" height="569"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLL-wW-zoY">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -212,8 +224,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6IB-jz-Nid" firstAttribute="bottom" secondItem="lLL-wW-zoY" secondAttribute="bottom" id="6nj-ec-M8j"/>
+                            <constraint firstItem="m2k-UK-Kf9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6IB-jz-Nid" secondAttribute="leading" id="8lx-Nj-Qs9"/>
+                            <constraint firstItem="6IB-jz-Nid" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m2k-UK-Kf9" secondAttribute="trailing" id="97E-wR-UEN"/>
+                            <constraint firstItem="m2k-UK-Kf9" firstAttribute="centerY" secondItem="IxM-qB-QbG" secondAttribute="centerY" id="IYn-Dx-ghl"/>
+                            <constraint firstItem="m2k-UK-Kf9" firstAttribute="centerX" secondItem="IxM-qB-QbG" secondAttribute="centerX" id="SJB-Qz-Qa9"/>
                             <constraint firstItem="lLL-wW-zoY" firstAttribute="leading" secondItem="6IB-jz-Nid" secondAttribute="leading" id="XIl-TK-999"/>
                             <constraint firstItem="lLL-wW-zoY" firstAttribute="top" secondItem="6IB-jz-Nid" secondAttribute="top" id="Zjx-ip-DjB"/>
+                            <constraint firstItem="m2k-UK-Kf9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6IB-jz-Nid" secondAttribute="top" id="vOd-af-03q"/>
+                            <constraint firstItem="6IB-jz-Nid" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m2k-UK-Kf9" secondAttribute="bottom" id="wz4-jh-Qf8"/>
                             <constraint firstItem="6IB-jz-Nid" firstAttribute="trailing" secondItem="lLL-wW-zoY" secondAttribute="trailing" id="yoj-TB-mjn"/>
                         </constraints>
                     </view>
@@ -760,10 +778,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Zc-og-n4P"/>
+        <segue reference="GI1-GC-HdJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="empty_state" width="698" height="1096"/>
+        <image name="empty_state_fichamento" width="698" height="1096"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="note.text" catalog="system" width="128" height="106"/>

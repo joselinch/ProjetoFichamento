@@ -42,7 +42,11 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
 
-    private var pastas: [Category]?
+    private var pastas: [Category] = [] {
+        didSet {
+            tableView.isHidden = pastas.isEmpty
+        }
+    }
     let cellSpacingHeight: CGFloat = 50
     
     override func viewDidLoad() {
@@ -59,7 +63,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func fetchData(){
-        pastas = returnCategory()
+        pastas = returnCategory() ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -75,7 +79,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return pastas?.count ?? 0
+        return pastas.count
     } //Quantidade de linhas em uma sessão -> padrão 1 - define na func acima
     
     
@@ -86,7 +90,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
          
 
 //        let folders = pastas?[indexPath.section]
-        let folders = pastas![indexPath.row]
+        let folders = pastas[indexPath.row]
         
         cell.titleLabel.text = folders.name
         let records = folders.card?.allObjects as? [Card]
@@ -104,7 +108,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
           
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,completionHandler) in
                 
-                let folderSelected = self.pastas![indexPath.row]
+                let folderSelected = self.pastas[indexPath.row]
                 
                 let alert = UIAlertController(title: "Delete \(folderSelected.name ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
                 
@@ -131,7 +135,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
             //MARK: - Editar
             let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                 
-                let folderSelected = self.pastas![indexPath.row]
+                let folderSelected = self.pastas[indexPath.row]
                 
                 let alert = UIAlertController(title: "Edit Folder", message: "Edit the name for this folder", preferredStyle: .alert)
                 
@@ -170,7 +174,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
 //MARK: - Segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         func retornaValores() -> (senderCards: [Card], senderCategory: Category?) {
-            return (pastas?[indexPath.row].card?.allObjects as! [Card], pastas?[indexPath.row])
+            return (pastas[indexPath.row].card?.allObjects as! [Card], pastas[indexPath.row])
         }
         performSegue(withIdentifier: "segueCards", sender: retornaValores())
     }
