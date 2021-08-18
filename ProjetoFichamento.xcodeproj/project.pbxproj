@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -217,7 +217,6 @@
 				2CF39D451DA784A1A81C7642 /* Pods-ProjetoFichamento.debug.xcconfig */,
 				062AC720953BB673019A727F /* Pods-ProjetoFichamento.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -521,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -543,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
