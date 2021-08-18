@@ -25,6 +25,7 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
     @IBOutlet var textFieldAuthor: UITextField!
     @IBOutlet weak var folderButtonOutlet: UIButton!
     @IBOutlet var textFieldReference: UITextField!
+    @IBOutlet weak var heightContent: NSLayoutConstraint!
     var selectedCategory: Category?
     
     //MARK: Reading Status Button
@@ -95,7 +96,9 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
         userNotes.delegate = self
         userNotes.text = "Write here your notes"
         userNotes.textColor = UIColor.lightGray
+        
     }
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if userNotes.textColor == UIColor.lightGray {
@@ -109,6 +112,7 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
             userNotes.text = "Write here your notes"
             userNotes.textColor = UIColor.lightGray
         }
+        
     }
 //    override func viewWillAppear(_ animated: Bool) {
 //        print("CARREGOU WILLAPPEAR")
@@ -131,4 +135,20 @@ class FichamentoViewController: UIViewController, FoldersModalListViewController
         }
     }
     
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        textFieldTitle.resignFirstResponder()
+//        userNotes.resignFirstResponder()
+//    }
+    
+//    func keyboardWasShown(notification: NSNotification) {
+//        let info = notification.userInfo!
+//        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//
+//        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+//            self.heightContent.constant = keyboardFrame.size.height + 20
+//            print (self.heightContent.constant)
+//        })
+//    }
+   
 }
