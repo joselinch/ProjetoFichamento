@@ -135,40 +135,48 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             }
         }
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var cellHeight:CGFloat = CGFloat()
+
+            cellHeight = 50
+    
+        return cellHeight
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentSection = searchSections[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
         switch currentSection {
         case .currentSearch:
-            cell.backgroundView?.frame = cell.frame.offsetBy(dx: 10, dy: 10);
+
             cell.textLabel?.text = filteredFolders[indexPath.row].name
-            cell.textLabel?.backgroundColor = #colorLiteral(red: 0.9861258864, green: 0.9276378155, blue: 0.9153859019, alpha: 1)
-            cell.textLabel?.layer.cornerRadius = 6.0
-            cell.textLabel?.layer.borderWidth = 1.0
-            cell.textLabel?.layer.borderColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
-            cell.textLabel?.textColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
             
+            cell.imageView?.image = UIImage(systemName: "folder")
+            cell.layer.cornerRadius = 10.0
+            cell.layer.borderWidth = 5.0
+            cell.imageView?.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
             cell.clipsToBounds = true
+            
+            if traitCollection.userInterfaceStyle == .light {
+                cell.backgroundColor = #colorLiteral(red: 0.9861258864, green: 0.9276378155, blue: 0.9153859019, alpha: 1)
+                cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            }else{
+                cell.backgroundColor = #colorLiteral(red: 0.1372389197, green: 0.137265116, blue: 0.1372332573, alpha: 1)
+                cell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            }
+            
         case .latestResearch:
+            cell.imageView?.image = nil
             cell.textLabel?.text = latestsResearches[indexPath.row].name
             cell.textLabel?.textColor = #colorLiteral(red: 0.548969686, green: 0.5490515828, blue: 0.548951745, alpha: 1)
-            cell.textLabel?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+            cell.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             cell.textLabel?.layer.borderWidth = 0
         }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        let verticalPadding: CGFloat = 8
-
-        let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10    //if you want round edges
-        maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-        cell.layer.mask = maskLayer
-    }    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentSection = searchSections[indexPath.section]
