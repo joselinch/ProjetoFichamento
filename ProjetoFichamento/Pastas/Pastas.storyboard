@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meJ-Ly-1uz">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +13,7 @@
         <!--Folders-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="FoldersListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="FoldersListViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +24,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j7S-hc-lP9">
                                 <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-detail" id="krw-AY-U2e" customClass="FoldersTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-detail" id="krw-AY-U2e" customClass="FoldersTableViewCell" customModule="Ref" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="krw-AY-U2e" id="zxK-lq-uSO">
@@ -137,7 +138,7 @@
         <!--Fichamentos-->
         <scene sceneID="rcu-DX-LRL">
             <objects>
-                <viewController storyboardIdentifier="FichamentoDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IV9-dv-h98" customClass="FichamentoListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FichamentoDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IV9-dv-h98" customClass="FichamentoListViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IxM-qB-QbG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-fichamento" id="d4R-Wm-F9Z" customClass="FichamentosTableViewCell" customModule="ProjetoFichamento" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="title-fichamento" id="d4R-Wm-F9Z" customClass="FichamentosTableViewCell" customModule="Ref" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4R-Wm-F9Z" id="KAe-Av-EFM">
@@ -250,7 +251,7 @@
         <!--Detalhe-->
         <scene sceneID="14S-u3-8aD">
             <objects>
-                <viewController title="Detalhe" id="pK4-Z4-70p" customClass="DetalhesViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detalhe" id="pK4-Z4-70p" customClass="DetalhesViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="je6-F6-G8x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,7 +457,7 @@
         <!--Edit-->
         <scene sceneID="MLb-TF-yQ0">
             <objects>
-                <viewController title="Edit" id="pRr-Fy-oqc" customClass="EditViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit" id="pRr-Fy-oqc" customClass="EditViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uq6-Se-CaA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -686,7 +687,7 @@
         <!--Edit Folders Modal List View Controller-->
         <scene sceneID="Bc6-TQ-TyJ">
             <objects>
-                <viewController id="HSw-JR-2c0" customClass="EditFoldersModalListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HSw-JR-2c0" customClass="EditFoldersModalListViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mkh-jX-4Za">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -782,8 +783,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="empty_state" width="698" height="1096"/>
-        <image name="empty_state_fichamento" width="698" height="1096"/>
+        <image name="empty_state" width="1500" height="2360"/>
+        <image name="empty_state_fichamento" width="1500" height="2564"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="note.text" catalog="system" width="128" height="106"/>

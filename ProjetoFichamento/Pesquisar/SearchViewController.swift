@@ -57,12 +57,18 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         navigationItem.searchController = searchController
         
         searchController.searchBar.placeholder = "Enter the folder name"
-        searchController.searchBar.showsSearchResultsButton = true
+        //searchController.searchBar.showsSearchResultsButton = true
         
         latestSearchTableView.delegate = self
         latestSearchTableView.dataSource = self
         
         setuplatestSearchTableView()
+        folders = returnCategory()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        folders = returnCategory()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -115,8 +121,18 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .white
             headerView.textLabel?.textColor = #colorLiteral(red: 0.997836411, green: 0.402813971, blue: 0.3040129542, alpha: 1)
+            if traitCollection.userInterfaceStyle == .light {
+                headerView.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                DispatchQueue.main.async {
+                                    self.latestSearchTableView.reloadData()
+                                }
+            } else {
+                headerView.contentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                DispatchQueue.main.async {
+                                    self.latestSearchTableView.reloadData()
+                                }
+            }
         }
     }
     
@@ -125,13 +141,34 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         let cell = tableView.dequeueReusableCell(withIdentifier: "latestResultsCell", for: indexPath)
         switch currentSection {
         case .currentSearch:
+            cell.backgroundView?.frame = cell.frame.offsetBy(dx: 10, dy: 10);
             cell.textLabel?.text = filteredFolders[indexPath.row].name
+            cell.textLabel?.backgroundColor = #colorLiteral(red: 0.9861258864, green: 0.9276378155, blue: 0.9153859019, alpha: 1)
+            cell.textLabel?.layer.cornerRadius = 6.0
+            cell.textLabel?.layer.borderWidth = 1.0
+            cell.textLabel?.layer.borderColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+            
+            cell.clipsToBounds = true
         case .latestResearch:
             cell.textLabel?.text = latestsResearches[indexPath.row].name
             cell.textLabel?.textColor = #colorLiteral(red: 0.548969686, green: 0.5490515828, blue: 0.548951745, alpha: 1)
+            cell.textLabel?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+            cell.textLabel?.layer.borderWidth = 0
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let verticalPadding: CGFloat = 8
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+    }    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentSection = searchSections[indexPath.section]

@@ -98,6 +98,8 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             
             let alert = UIAlertController(title: "Delete \(cardSelected.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
             
+            alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+            
             let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             alert.addAction(alertCancel)
@@ -137,6 +139,8 @@ class FichamentoListViewController: UIViewController, UITableViewDataSource, UIT
             let cardSelected = self.cards[indexPath.row]
             
             let alert = UIAlertController(title: "Duplicate \(cardSelected.title ?? "") ?", message: "This will duplicate all the records in this card", preferredStyle: .alert)
+            
+            alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
             
             let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             

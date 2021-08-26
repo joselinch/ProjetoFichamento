@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QtL-eq-uDO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +13,7 @@
         <!--New Record-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="FichamentoViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="FichamentoViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +72,7 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpg-zU-oJK">
                                                 <rect key="frame" x="20" y="540" width="49" height="33"/>
-                                                <color key="backgroundColor" red="0.93728423120000004" green="0.93718540669999995" blue="0.94117766619999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" name="StatusColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="Q6L-ax-vKs"/>
                                                 </constraints>
@@ -192,7 +193,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Record" id="qqQ-3c-GE6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="liJ-Qv-JyF">
+                        <barButtonItem key="leftBarButtonItem" title="Clean" style="done" id="liJ-Qv-JyF">
+                            <color key="tintColor" name="Color1Primary"/>
                             <connections>
                                 <action selector="cancelButton:" destination="Y6W-OH-hqX" id="sdr-Go-Gid"/>
                             </connections>
@@ -224,7 +226,7 @@
         <!--Folders Modal List View Controller-->
         <scene sceneID="a9L-zu-8ha">
             <objects>
-                <viewController id="sBu-NW-WVM" customClass="FoldersModalListViewController" customModule="ProjetoFichamento" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sBu-NW-WVM" customClass="FoldersModalListViewController" customModule="Ref" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E3K-W2-rtD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,6 +351,9 @@
         </namedColor>
         <namedColor name="GreenPrimary">
             <color red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatusColor">
+            <color red="0.93728423120000004" green="0.93718540669999995" blue="0.94117766619999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

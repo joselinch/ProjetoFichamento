@@ -16,6 +16,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func addFolders(_ sender: Any) {
             let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
             
+            alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
             alert.addTextField(){ (textField) in
                 textField.placeholder = "Enter a name"
             }
@@ -112,6 +113,8 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
                 
                 let alert = UIAlertController(title: "Delete \(folderSelected.name ?? "") ?", message: "This will delete all the records in this folder", preferredStyle: .alert)
                 
+                alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+                
                 let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 
                 alert.addAction(alertCancel)
@@ -138,6 +141,7 @@ class FoldersListViewController: UIViewController, UITableViewDataSource, UITabl
                 let folderSelected = self.pastas[indexPath.row]
                 
                 let alert = UIAlertController(title: "Edit Folder", message: "Edit the name for this folder", preferredStyle: .alert)
+                alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
                 
                 alert.addTextField(){ (textField) in
                     textField.placeholder = "Enter a name"

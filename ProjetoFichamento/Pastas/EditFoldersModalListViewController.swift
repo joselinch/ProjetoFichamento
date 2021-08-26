@@ -22,6 +22,8 @@ class EditFoldersModalListViewController: UIViewController, UITableViewDataSourc
     @IBAction func createButton(_ sender: Any) {
         let alert = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
         
+        alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
+        
         alert.addTextField(){ (textField) in
             textField.placeholder = "Enter a name"
         }

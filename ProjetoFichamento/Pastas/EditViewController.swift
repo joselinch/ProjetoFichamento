@@ -42,6 +42,7 @@ class EditViewController: UIViewController, UITextViewDelegate, EditFoldersModal
     
     func delete(card: Card, category: Category) {
         let alert = UIAlertController(title: "Delete \(self.card?.title ?? "") ?", message: "This will delete all the records in this card", preferredStyle: .alert)
+        alert.view.tintColor = #colorLiteral(red: 0.9301540256, green: 0.4405925274, blue: 0.3389047384, alpha: 1)
         
         let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         

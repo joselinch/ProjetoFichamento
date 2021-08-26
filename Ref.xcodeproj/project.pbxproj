@@ -53,7 +53,7 @@
 		27CF60EB26B85DE3003D6BC7 /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		27CF60ED26B86594003D6BC7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		27CF60EE26B86594003D6BC7 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27D1F9E726A9CEDB001987CB /* ProjetoFichamento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoFichamento.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D1F9E726A9CEDB001987CB /* Ref.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ref.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D1F9EA26A9CEDB001987CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D1F9EC26A9CEDB001987CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		27D1F9EE26A9CEDB001987CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		27D1F9E826A9CEDB001987CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27D1F9E726A9CEDB001987CB /* ProjetoFichamento.app */,
+				27D1F9E726A9CEDB001987CB /* Ref.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,9 +231,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27D1F9E626A9CEDB001987CB /* ProjetoFichamento */ = {
+		27D1F9E626A9CEDB001987CB /* Ref */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27D1F9FE26A9CEDE001987CB /* Build configuration list for PBXNativeTarget "ProjetoFichamento" */;
+			buildConfigurationList = 27D1F9FE26A9CEDE001987CB /* Build configuration list for PBXNativeTarget "Ref" */;
 			buildPhases = (
 				BF6C546A65F1254E45B5594C /* [CP] Check Pods Manifest.lock */,
 				27D1F9E326A9CEDB001987CB /* Sources */,
@@ -245,9 +245,9 @@
 			);
 			dependencies = (
 			);
-			name = ProjetoFichamento;
+			name = Ref;
 			productName = ProjetoFichamento;
-			productReference = 27D1F9E726A9CEDB001987CB /* ProjetoFichamento.app */;
+			productReference = 27D1F9E726A9CEDB001987CB /* Ref.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +264,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27D1F9E226A9CEDB001987CB /* Build configuration list for PBXProject "ProjetoFichamento" */;
+			buildConfigurationList = 27D1F9E226A9CEDB001987CB /* Build configuration list for PBXProject "Ref" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -277,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27D1F9E626A9CEDB001987CB /* ProjetoFichamento */,
+				27D1F9E626A9CEDB001987CB /* Ref */,
 			);
 		};
 /* End PBXProject section */
@@ -520,9 +520,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,9 +543,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = LTT64UC4XT;
 				INFOPLIST_FILE = ProjetoFichamento/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27D1F9E226A9CEDB001987CB /* Build configuration list for PBXProject "ProjetoFichamento" */ = {
+		27D1F9E226A9CEDB001987CB /* Build configuration list for PBXProject "Ref" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D1F9FC26A9CEDE001987CB /* Debug */,
@@ -569,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27D1F9FE26A9CEDE001987CB /* Build configuration list for PBXNativeTarget "ProjetoFichamento" */ = {
+		27D1F9FE26A9CEDE001987CB /* Build configuration list for PBXNativeTarget "Ref" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D1F9FF26A9CEDE001987CB /* Debug */,
