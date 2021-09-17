@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  ProjetoFichamento
+  Created by Julia Silveira de Souza on 27/08/21.
+*/
+
+//MARK: Reutilizáveis
+"cancel" = "Cancelar";
+"back" = "Voltar";
+"clear" = "Limpar";
+"edit" = "Editar";
+"delete" = "Deletar";
+"duplicate" = "Duplicar";
+"save" = "Salvar";
+"archive" = "Arquivar";
+
+//MARK: Onboarding e página inicial
+"onboardingLabel" = "Registre suas principais anotações de estudo de modo rápido e organizado!";
+"onboardingLabel2" = "Sempre que precisar, seus principais registros estarão sempre na palma da sua mão!";
+"onboardingButton" = "Começar";
+"mainLabel" = "Pastas";
+"records" = "ficha";
+"emptyStateLabel" = "Clique no ícone + e crie pastas para começar a organizar suas anotações!";
+"emptyStateLabel2" = "Suas anotações podem ser criadas ao clicar no ícone + ou no menu em ‘Criar fichamento’";
+
+//MARK: Tab Bar
+"tabItem1" = "Pastas";
+"tabItem2" = "Criar Ficha";
+"tabItem3" = "Buscar";
+
+//MARK: Fichamento
+"title" = "Título";
+"folder" = "Pasta";
+"author" = "Autor(a)";
+"reference" = "Referência";
+"readingStatus1" = "Lendo";
+"readingStatus2" = "Lido";
+"readingStatus3" = "Quero ler";
+"addFiles" = "Adicionar arquivo";
+"createNewFolder" = "Crie uma nova pasta";
+
+//MARK: Alerts
+"newFolder" = "Nova Pasta";
+"newFolderDescription" = "Insira o nome da pasta:";
+"okAlert" = "Tudo certo!";
+"okAlertDescription" = "foi criado com sucesso";
+"renameFolder" = "Renomear pasta";
+"renameFolderDescription" = "Digite o novo nome:";
+"deleteAlertDescription" = "Isso irá deletar todas fichas desta pasta";
+"attachmentAlert" = "Você deseja anexar este arquivo?";

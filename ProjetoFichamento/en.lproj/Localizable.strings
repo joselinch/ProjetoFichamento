@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  ProjetoFichamento
+
+  Created by Julia Silveira de Souza on 27/08/21.
+  
+*/
+
+//MARK: Reutilizáveis
+"cancel" = "Cancel";
+"back" = "Back";
+"clear" = "Clear";
+"edit" = "Edit";
+"delete" = "Delete";
+"duplicate" = "Duplicate";
+"save" = "Save";
+"archive" = "Archive";
+
+//MARK: Onboarding e página inicial
+"onboardingLabel" = "Register your main study notes in a fast and organized way!";
+"onboardingLabel2" = "Whenever you need it, your key records will always be in the palm of your hand!";
+"onboardingButton" = "Let's start";
+"mainLabel" = "Folders";
+"emptyStateLabel" = "Click the + icon and create folders to start organizing your notes!";
+"emptyStateLabel2" = "Your annotations can be created by clicking in the menu under ‘Smart note’";
+
+//MARK: Tab Bar
+"tabItem1" = "Folders";
+"tabItem2" = "Smart note";
+"tabItem3" = "Search";
+
+//MARK: Fichamento
+"title" = "Title";
+"folder" = "Folder";
+"author" = "Author";
+"reference" = "Reference";
+"readingStatus1" = "Reading";
+"readingStatus2" = "Read";
+"readingStatus3" = "To read";
+"addFiles" = "Add archive";
+"createNewFolder" = "Create new folder";
+
+//MARK: Alerts
+"newFolder" = "New folder";
+"newFolderDescription" = "Enter a name for this folder:";
+"okAlert" = "Success!";
+"okAlertDescription" = "created successfully";
+"renameFolder" = "Rename folder";
+"renameFolderDescription" = "Enter a name for this folder:";
+"deleteAlertDescription" = "This will delete all the records in this folder";
+"attachmentAlert" = "Do you want to attach the file?";
